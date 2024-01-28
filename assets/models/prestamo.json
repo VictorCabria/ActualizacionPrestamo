@@ -1,0 +1,35 @@
+{
+    "cliente":{
+"id":
+"QPRUQwB4HI6vbggfuVmB",
+"nombre":
+"HECTOR"},
+"detalle":
+"48 cuotas de $ 100.0",
+"fecha":
+"22 de junio de 2022, 15:18:09 UTC-5",
+"monto":
+1000,
+"numero_de_cuota":
+24,
+"porcentaje":
+20,
+"punto_de_referencia":
+"",
+"recorrido":
+1,
+"saldo_prestamo":
+1200,
+"sesion_id":
+"PPAfQeMJOwqGHY7N42ok",
+"tipo_prestamo":
+{"id":
+"cK3QJvv0hefYc5yG7XBg",
+"nombre":
+"Diario 24 cuotas [20%] - 1 mes(es)"},
+"total_prestamo":
+1200,
+"valor_cuota":
+5
+
+}

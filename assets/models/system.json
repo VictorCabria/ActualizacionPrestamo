@@ -1,0 +1,65 @@
+{
+    "Monto":
+100,
+
+"activar_refinanciacion":
+false,
+"activar_zona":
+false,
+"ajuste_sesion_neg":
+{"id":
+"K1cdNpR9efSIjAPQo7Kw",
+"nombre":
+"Ajuste Negativo"},
+"ajuste_sesion_pos":{
+"id":
+"R2rLeSZ7a5O9SrlM4f1B",
+"nombre":
+"Ajuste Positivo"},
+"cobrar_domingos": 
+false,
+"cobrar_sabados":
+false,
+"cobrar_viernes":
+false,
+"concepto_de_perdidas":
+{"id":
+"DzfFvbJyk3aVA9hwPaLj",
+"nombre":
+"Concepto de Pérdidas "},
+"concepto_prestamo":
+{"id":
+"yNbdYIdKDxSaDfvxBlvM",
+"nombre":
+"Concepto Préstamo"},
+"concepto_recaudo":
+{"id":
+"BROHx8ghwTuoyGpvsXrc",
+"nombre":
+"Concepto Recaudo"},
+"concepto_refinanciacion":
+{"id":
+"J7dW3KnqCTHzNG4Pm8s1",
+"nombre":
+"Concepto Refinanciación"},
+"dias_para_el_primer_cobro":
+1,
+"dividir_valor_por_mil_en_movil":
+false,
+"efectivo_id":
+{"id":
+"kL7NYdelz2oCpkCH5lHg",
+"nombre":
+"Efectivo"},
+"modificar_valor_inicial_en_sesion":
+false,
+"n_días_vencidos_para_refinanciar":
+5,
+"tipo_prestamo":
+{"id":
+"cK3QJvv0hefYc5yG7XBg",
+"nombre":
+"Diario 24 cuotas [20%] - 1 mes(es)"},
+"valor_de_cuota_en_cero":
+false
+}

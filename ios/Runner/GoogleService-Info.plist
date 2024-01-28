@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>1034015172899-uifq3125ohvd1b8di9ljcf4rs57h78e1.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.1034015172899-uifq3125ohvd1b8di9ljcf4rs57h78e1</string>
+	<key>API_KEY</key>
+	<string>AIzaSyC1Hcx1WS6-8GuVD4e6Sye_SV11yCUjEuQ</string>
+	<key>GCM_SENDER_ID</key>
+	<string>1034015172899</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.example.prestamoMc</string>
+	<key>PROJECT_ID</key>
+	<string>demoprestamo-3cdcf</string>
+	<key>STORAGE_BUCKET</key>
+	<string>demoprestamo-3cdcf.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:1034015172899:ios:d88f2fe2b4909631b14496</string>
+</dict>
+</plist>
