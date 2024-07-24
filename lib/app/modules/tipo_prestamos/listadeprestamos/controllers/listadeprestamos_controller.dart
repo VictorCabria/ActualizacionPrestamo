@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
-import 'package:prestamo_mc/app/services/model_services/prestamo_service.dart';
-import 'package:prestamo_mc/app/services/model_services/tipoprestamo_service.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
-
+import '../../../../models/type_prestamo_model.dart';
+import '../../../../routes/app_pages.dart';
+import '../../../../services/model_services/prestamo_service.dart';
+import '../../../../services/model_services/tipoprestamo_service.dart';
 import '../../../../utils/palette.dart';
+import '../../../../utils/references.dart';
 
 class ListadeprestamosController extends GetxController {
   RxList<TypePrestamo> prestamo = RxList<TypePrestamo>([]);

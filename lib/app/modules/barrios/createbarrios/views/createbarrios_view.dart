@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/zone_model.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-
+import '../../../../models/zone_model.dart';
 import '../../../../utils/palette.dart';
 import '../controllers/createbarrios_controller.dart';
 

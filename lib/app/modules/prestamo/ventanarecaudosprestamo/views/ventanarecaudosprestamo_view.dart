@@ -2,11 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
+import '../../../../models/client_model.dart';
 import '../../../../models/recaudo_line_modal.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/ventanarecaudosprestamo_controller.dart';
 
 class VentanarecaudosprestamoView

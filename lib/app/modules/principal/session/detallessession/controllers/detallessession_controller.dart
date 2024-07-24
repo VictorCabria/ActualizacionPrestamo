@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/transaction_model.dart';
-import 'package:prestamo_mc/app/modules/principal/home/controllers/home_controller.dart';
-import 'package:prestamo_mc/app/services/model_services/conceptos_service.dart';
-import 'package:prestamo_mc/app/services/model_services/recaudos_service.dart';
-
 import '../../../../../models/prestamo_model.dart';
 import '../../../../../models/recaudo_line_modal.dart';
 import '../../../../../models/recaudo_model.dart';
+import '../../../../../models/transaction_model.dart';
 import '../../../../../services/model_services/client_service.dart';
 import '../../../../../services/model_services/cobradores_service.dart';
+import '../../../../../services/model_services/conceptos_service.dart';
 import '../../../../../services/model_services/prestamo_service.dart';
+import '../../../../../services/model_services/recaudos_service.dart';
 import '../../../../../services/model_services/tipoprestamo_service.dart';
 import '../../../../../services/model_services/transacciones_service.dart';
+import '../../../home/controllers/home_controller.dart';
 
 class DetallessessionController extends GetxController
     with GetSingleTickerProviderStateMixin {

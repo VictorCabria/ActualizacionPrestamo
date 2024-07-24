@@ -1,10 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/services/firebase_services/database_service.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
+import 'package:prestamo_mc_2_0/app/services/firebase_services/database_services.dart';
+
 
 import '../../models/client_model.dart';
+import '../../utils/references.dart';
 
 class ClientService {
   static String clientReference = firebaseReferences.client;

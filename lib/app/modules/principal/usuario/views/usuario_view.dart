@@ -6,7 +6,6 @@ import '../controllers/usuario_controller.dart';
 
 class UsuarioView extends GetView<UsuarioController> {
   const UsuarioView({Key? key}) : super(key: key);
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(

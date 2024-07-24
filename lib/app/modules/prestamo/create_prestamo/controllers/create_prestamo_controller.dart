@@ -3,29 +3,31 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/barrio_modal.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/services/model_services/barrio_service.dart';
-import 'package:prestamo_mc/app/services/model_services/prestamo_service.dart';
 import '../../../../models/ajustes_modal.dart';
+import '../../../../models/barrio_modal.dart';
+import '../../../../models/client_model.dart';
+import '../../../../models/cobradores_modal.dart';
 import '../../../../models/diasnocobro_modal.dart';
+import '../../../../models/prestamo_model.dart';
+import '../../../../models/type_prestamo_model.dart';
 import '../../../../models/zone_model.dart';
 import '../../../../routes/app_pages.dart';
-import '../../../../services/model_services/ajustes_service.dart';
+import '../../../../services/model_services/ajustes_services.dart';
+import '../../../../services/model_services/barrio_service.dart';
 import '../../../../services/model_services/client_service.dart';
 import '../../../../services/model_services/diascobro_service.dart';
+import '../../../../services/model_services/prestamo_service.dart';
 import '../../../../services/model_services/tipoprestamo_service.dart';
 import '../../../../services/model_services/zona_service.dart';
 import '../../../../utils/app_constants.dart';
+import '../../../../utils/date_utils.dart';
 import '../../../principal/home/controllers/home_controller.dart';
-import 'package:date_utils/date_utils.dart' as dt;
+
+
 
 class CreatePrestamoController extends GetxController {
   final homeControll = Get.find<HomeController>();
-
+DateTime selectedDate = DateTime.now();
   final loading = false.obs;
   final scrollController = ScrollController();
   TextEditingController? textController = TextEditingController();
@@ -47,8 +49,9 @@ class CreatePrestamoController extends GetxController {
   late Stream<List<Diasnocobro>> diasnocobroStream;
   RxList<Diasnocobro> diasnocobros = RxList<Diasnocobro>([]);
   Diasnocobro? diasnocobro;
-  RxString fecha = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
+   RxString fecha = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs; 
   Timestamp primerrecaudo = Timestamp.now();
+  late TextEditingController fromDateControler;
 
   //inicializar listas
   final clients = [].obs;
@@ -74,6 +77,7 @@ class CreatePrestamoController extends GetxController {
     recorridocontroller = TextEditingController();
     montoTextController = TextEditingController();
     tipodeprestamocontroller = TextEditingController();
+    fromDateControler = TextEditingController(text: fecha.value);
     textController!.text = valorCuota.value;
     clients.value = await getListClients();
     zonas.value = await getListZona();
@@ -262,14 +266,14 @@ class CreatePrestamoController extends GetxController {
   }
 
   void createPrestamo() async {
-    print("Fecha inicial para el limite${fecha.value}");
-    final fechavencido = getfechadevencimiento(
-        DateTime.parse(fecha.value), tipoPrestamo!.meses!);
+    print("Fecha inicial para el limite${fromDateControler.text}");
+     final fechavencido = getfechadevencimiento(
+        DateTime.parse(fromDateControler.text), tipoPrestamo!.meses!); 
 
     tipoPrestam2 =
         await typePrestamoService.selecttypeprestamoid(tipoPrestamo!.id!);
 
-    var aux = DateTime.parse(fecha.value);
+    var aux = DateTime.parse(fromDateControler.text);
 
     final fechaactualizada = "".obs;
     if (tipoPrestam2!.tipo['tipo'] == "Diario") {
@@ -384,7 +388,7 @@ class CreatePrestamoController extends GetxController {
       clienteId: client!.id,
       cobradorId: cobrador!.id,
       detalle: detalle.value,
-      fecha: fecha.value,
+      fecha: fromDateControler.text,
       monto: monto.value,
       zonaId: zona!.id,
       estado: StatusPrestamo.aldia.name,
@@ -421,10 +425,11 @@ class CreatePrestamoController extends GetxController {
     }
   }
 
-  getfechadevencimiento(DateTime fechainicial, int numerodemeses) {
+
+    getfechadevencimiento(DateTime fechainicial, int numerodemeses) {
     var init = fechainicial;
     for (int i = 1; i <= numerodemeses; i++) {
-      final fechas = dt.DateUtils.daysInMonth(init);
+      final fechas = DateUtils2.daysInMonth(init);
       fechas.removeWhere((element) => element.month != init.month);
       int dias = fechas.length;
 
@@ -432,5 +437,7 @@ class CreatePrestamoController extends GetxController {
     }
 
     return init;
-  }
+  }  
+
+
 }

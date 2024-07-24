@@ -1,14 +1,12 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/utils/utils.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
 import '../../../../models/client_model.dart';
+import '../../../../models/cobradores_modal.dart';
 import '../../../../models/zone_model.dart';
 import '../../../../routes/app_pages.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/detallesrecaudos_controller.dart';
 
 class DetallesrecaudosView extends GetView<DetallesrecaudosController> {
@@ -59,10 +57,10 @@ class DetallesrecaudosView extends GetView<DetallesrecaudosController> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Row(
+                                    const Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
-                                      children: const [
+                                      children: [
                                         Text(
                                           'Fecha',
                                           style: TextStyle(
@@ -116,10 +114,10 @@ class DetallesrecaudosView extends GetView<DetallesrecaudosController> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Row(
+                                    const Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
-                                      children: const [
+                                      children: [
                                         Text(
                                           'Estado',
                                           style: TextStyle(
@@ -146,10 +144,10 @@ class DetallesrecaudosView extends GetView<DetallesrecaudosController> {
                                   crossAxisAlignment: CrossAxisAlignment.start,
                                   mainAxisAlignment: MainAxisAlignment.start,
                                   children: [
-                                    Row(
+                                    const Row(
                                       mainAxisAlignment:
                                           MainAxisAlignment.spaceBetween,
-                                      children: const [
+                                      children: [
                                         Text(
                                           'Zona',
                                           style: TextStyle(
@@ -354,10 +352,10 @@ class CustomCard extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'Saldo',
                                             style: TextStyle(
@@ -384,10 +382,10 @@ class CustomCard extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'Monto',
                                             style: TextStyle(
@@ -414,10 +412,10 @@ class CustomCard extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'Valor a pagar',
                                             style: TextStyle(

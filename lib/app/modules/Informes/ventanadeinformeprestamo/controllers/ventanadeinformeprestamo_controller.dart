@@ -1,14 +1,14 @@
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
+import 'package:pdf/widgets.dart' as pw;
+import 'package:pdf/pdf.dart';
 
 import '../../../../models/client_model.dart';
 import '../../../../models/type_prestamo_model.dart';
 import '../../../../services/model_services/client_service.dart';
 import '../../../../services/model_services/tipoprestamo_service.dart';
 import '../../informeprestamo/controllers/informeprestamo_controller.dart';
-import 'package:pdf/pdf.dart';
-import 'package:intl/intl.dart';
-import 'package:pdf/widgets.dart' as pw;
 
 class VentanadeinformeprestamoController extends GetxController {
   pw.Document pdf = pw.Document();

@@ -1,0 +1,82 @@
+{
+  "project_info": {
+    "project_number": "266398351639",
+    "project_id": "prestamocesarsynergia",
+    "storage_bucket": "prestamocesarsynergia.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266398351639:android:8a27de0ef77d3ab1803752",
+        "android_client_info": {
+          "package_name": "com.prestamo.prestamo_mc_2_0"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266398351639-10abfrm9knt9kht9a6r8smd9jsf6vgi1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8KM3Xoj7CSQV470TWDNe5lNdYrxicAt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266398351639-10abfrm9knt9kht9a6r8smd9jsf6vgi1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "266398351639-e9u2258vmmu35gt4h7t1rq6hpcqubii1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.prestamoMc"
+              }
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:266398351639:android:f5fc38957f102fed803752",
+        "android_client_info": {
+          "package_name": "com.synergia.prestamo_mc"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "266398351639-10abfrm9knt9kht9a6r8smd9jsf6vgi1.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC8KM3Xoj7CSQV470TWDNe5lNdYrxicAt0"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "266398351639-10abfrm9knt9kht9a6r8smd9jsf6vgi1.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "266398351639-e9u2258vmmu35gt4h7t1rq6hpcqubii1.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.example.prestamoMc"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

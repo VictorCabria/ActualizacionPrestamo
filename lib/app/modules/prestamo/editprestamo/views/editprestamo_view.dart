@@ -1,18 +1,20 @@
-import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
+import 'package:intl/intl.dart';
+
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../models/client_model.dart';
 import '../../../../models/zone_model.dart';
 import '../../../../routes/app_pages.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/editprestamo_controller.dart';
 
 class EditprestamoView extends GetView<EditprestamoController> {
+  const EditprestamoView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(
@@ -42,28 +44,34 @@ class EditprestamoView extends GetView<EditprestamoController> {
                         decoration: BoxDecoration(
                             color: Colors.white,
                             borderRadius: BorderRadius.circular(20)),
-                        child: DateTimePicker(
-                          dateMask: "d/MM/yyyy",
+                        child: TextFormField(
+                          onTap: () async {
+                            final DateTime? pickedTime = await showDatePicker(
+                                context: context,
+                                initialDate: controller.selectedDate2,
+                                firstDate: DateTime(2015, 8),
+                                lastDate: DateTime(2101));
+
+                            if (pickedTime != null) {
+                              controller.fromDateControler2.text =
+                                  DateFormat('yyyy-MM-dd').format(pickedTime);;
+                            }
+                          },
+                          autofocus: false,
+                          controller: controller.fromDateControler2,
+                          keyboardType: TextInputType.number,
                           cursorColor: Palette.primary,
-                          initialValue: controller.fecha.value,
-                          firstDate: DateTime(2000),
-                          lastDate:
-                              DateTime.now().add(const Duration(days: 665)),
-                          dateLabelText: 'Fecha',
-                          onChanged: (val) => controller.fecha.value = val,
+                          onSaved: (value) {
+                            controller.fromDateControler2.text = value!;
+                          },
                           decoration: const InputDecoration(
-                              focusColor: Palette.primary,
-                              hoverColor: Palette.primary,
-                              prefixIcon: Icon(Icons.account_circle,
-                                  color: Palette.primary),
+                              prefixIcon:
+                                  Icon(Icons.headset, color: Palette.primary),
                               enabledBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
                                   Radius.circular(40.0),
                                 ),
-                                borderSide: BorderSide(
-                                  color: Palette.primary,
-                                  width: 1,
-                                ),
+                                borderSide: BorderSide(color: Palette.primary),
                               ),
                               focusedBorder: OutlineInputBorder(
                                 borderRadius: BorderRadius.all(
@@ -203,7 +211,7 @@ class EditprestamoView extends GetView<EditprestamoController> {
                           Expanded(
                               child: IconButton(
                                   onPressed: () {
-                                    Get.toNamed(Routes.CREATEZONE);
+                                    /*     Get.toNamed(Routes.CREATEZONE); */
                                   },
                                   icon: const Icon(
                                     Icons.add_outlined,
@@ -360,7 +368,7 @@ class EditprestamoView extends GetView<EditprestamoController> {
                           Expanded(
                             child: IconButton(
                               onPressed: () {
-                                Get.toNamed(Routes.REGISTRARPRESTAMOS);
+                                /* Get.toNamed(Routes.REGISTRARPRESTAMOS); */
                               },
                               icon: const Icon(
                                 Icons.add_outlined,

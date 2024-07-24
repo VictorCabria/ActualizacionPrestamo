@@ -1,8 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
 
+
+import '../../../../models/type_prestamo_model.dart';
 import '../../../../routes/app_pages.dart';
 import '../../../../utils/palette.dart';
 import '../controllers/seachtipoprestamo_controller.dart';
@@ -62,7 +63,7 @@ class SeachtipoprestamoView extends GetView<SeachtipoprestamoController> {
                 backgroundColor: Palette.primary,
                 child: const Icon(Icons.add, color: Colors.white),
                 onPressed: () {
-                   Get.toNamed(Routes.REGISTRARPRESTAMOS); 
+                  /*  Get.toNamed(Routes.REGISTRARPRESTAMOS);  */
                 },
               ),
             ],

@@ -1,25 +1,26 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
-import 'package:prestamo_mc/app/models/recaudo_line_modal.dart';
-import 'package:prestamo_mc/app/modules/principal/home/controllers/home_controller.dart';
-import 'package:prestamo_mc/app/services/model_services/client_service.dart';
-
+import '../../../../models/prestamo_model.dart';
 import '../../../../routes/app_pages.dart';
+import '../../../../services/model_services/client_service.dart';
 import '../../../../services/model_services/recaudos_service.dart';
+import '../../../principal/home/controllers/home_controller.dart';
 
 class RecaudarController extends GetxController {
   //TODO: Implement RecaudarController
   RxString fecha = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
+  DateTime selectedDate = DateTime.now();
   Prestamo? selectprestamos;
   final homecontroller = Get.find<HomeController>();
   final formkey = GlobalKey<FormState>();
   late TextEditingController recaudocontroller;
+  late TextEditingController fromDateControler;
   final monto = 0.0.obs;
   @override
   void onInit() {
     super.onInit();
+    fromDateControler = TextEditingController(text: fecha.value);
     recaudocontroller = TextEditingController();
   }
 

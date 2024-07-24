@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
-import 'package:prestamo_mc/app/services/model_services/client_service.dart';
-import 'package:prestamo_mc/app/services/model_services/prestamo_service.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
+import '../../../../models/client_model.dart';
+import '../../../../routes/app_pages.dart';
+import '../../../../services/model_services/client_service.dart';
+import '../../../../services/model_services/prestamo_service.dart';
+import '../../../../utils/palette.dart';
+import '../../../../utils/references.dart';
 
 class ListclientController extends GetxController {
   RxList<Client> clientes = RxList<Client>([]);

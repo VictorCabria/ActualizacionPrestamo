@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/zone_model.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-
+import '../../../../models/zone_model.dart';
+import '../../../../routes/app_pages.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/listzonas_controller.dart';
 
 class ListzonasView extends GetView<ListzonasController> {

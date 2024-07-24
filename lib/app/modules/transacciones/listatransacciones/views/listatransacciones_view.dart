@@ -2,11 +2,11 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/models/concepto_model.dart';
-import 'package:prestamo_mc/app/models/transaction_model.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import '../../../../models/cobradores_modal.dart';
+import '../../../../models/concepto_model.dart';
+import '../../../../models/transaction_model.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/listatransacciones_controller.dart';
 
 class ListatransaccionesView extends GetView<ListatransaccionesController> {

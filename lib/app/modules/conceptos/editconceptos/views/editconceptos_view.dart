@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-
+import '../../../../utils/palette.dart';
 import '../controllers/editconceptos_controller.dart';
 
 class EditconceptosView extends GetView<EditconceptosController> {
@@ -109,7 +108,7 @@ class EditconceptosView extends GetView<EditconceptosController> {
                   ),
                 ),
                 const SizedBox(height: 15),
-              Container(
+                Container(
                   height: 60,
                   decoration: BoxDecoration(
                       color: Colors.white,
@@ -149,7 +148,7 @@ class EditconceptosView extends GetView<EditconceptosController> {
                             onChanged: controller.onChangeDorpdownnaturaleza)
                         : const CircularProgressIndicator(),
                   ),
-                ), 
+                ),
                 const SizedBox(height: 15),
                 Obx(() => CheckboxListTile(
                     title: const Text(
@@ -183,7 +182,7 @@ class EditconceptosView extends GetView<EditconceptosController> {
                           backgroundColor:
                               MaterialStateProperty.all(Palette.primary)),
                       onPressed: () {
-                           controller.editconcepto(); 
+                        controller.editconcepto();
                       },
                       child: const Text(
                         "Guardar",

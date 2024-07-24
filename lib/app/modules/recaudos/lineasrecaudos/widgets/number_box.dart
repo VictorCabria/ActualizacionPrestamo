@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:getwidget/components/button/gf_button.dart';
 import 'package:intl/intl.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
@@ -207,10 +206,13 @@ showNumericPanel(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
-                                    Text(
-                                      "Cliente: ${client.nombre}",
-                                      style: styles.tittleRegister,
-                                    ),
+                                    Flexible(
+                                      child: Text(
+                                        "Cliente: ${client.nombre}",
+                                        overflow: TextOverflow.fade,
+                                        style: styles.tittleRegister,
+                                      ),
+                                    )
                                   ],
                                 ),
                               ),

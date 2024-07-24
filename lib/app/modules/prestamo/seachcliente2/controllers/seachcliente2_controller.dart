@@ -1,6 +1,5 @@
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-
+import '../../../../models/client_model.dart';
 import '../../../../services/model_services/client_service.dart';
 
 class Seachcliente2Controller extends GetxController {

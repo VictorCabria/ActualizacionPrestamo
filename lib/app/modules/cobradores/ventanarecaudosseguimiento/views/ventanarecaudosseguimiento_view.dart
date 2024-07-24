@@ -11,6 +11,8 @@ import '../controllers/ventanarecaudosseguimiento_controller.dart';
 
 class VentanarecaudosseguimientoView
     extends GetView<VentanarecaudosseguimientoController> {
+  const VentanarecaudosseguimientoView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(

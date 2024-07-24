@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/services/model_services/session_service.dart';
 import '../../../../models/prestamo_model.dart';
 import '../../../../models/recaudo_line_modal.dart';
 import '../../../../models/session_model.dart';
@@ -9,6 +8,7 @@ import '../../../../models/transaction_model.dart';
 import '../../../../routes/app_pages.dart';
 import '../../../../services/model_services/prestamo_service.dart';
 import '../../../../services/model_services/recaudos_service.dart';
+import '../../../../services/model_services/session_service.dart';
 import '../../../../services/model_services/transacciones_service.dart';
 import '../../../principal/home/controllers/home_controller.dart';
 
@@ -36,7 +36,10 @@ class InformesessionController extends GetxController {
   late Stream<List<RecaudoLine>> recaudoStream;
   final formkey = GlobalKey<FormState>();
 
- RxString fecha = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
+  DateTime selectedDate = DateTime.now();
+  late TextEditingController fromDateControler;
+
+  RxString fecha = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
   RxString fechafinal = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
   @override
   void onInit() {
@@ -44,6 +47,7 @@ class InformesessionController extends GetxController {
     transaccionesStream = gettransacciones();
     prestamosStream = getprestamos();
     recaudoStream = getrecaudo();
+    fromDateControler = TextEditingController(text: fecha.value);
     init();
     super.onInit();
   }
@@ -94,7 +98,7 @@ class InformesessionController extends GetxController {
     sessionnuevos.clear();
     prestamosnuevos.clear();
     recaudosnuevos.clear();
-    final fechainicio = DateTime.parse(fecha.value);
+    final fechainicio = DateTime.parse(fromDateControler.text);
 
     var response = session.value = consultar
         .where((element) =>

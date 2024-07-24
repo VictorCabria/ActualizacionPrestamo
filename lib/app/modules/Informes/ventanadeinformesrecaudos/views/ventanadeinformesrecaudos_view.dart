@@ -8,6 +8,8 @@ import '../controllers/ventanadeinformesrecaudos_controller.dart';
 
 class VentanadeinformesrecaudosView
     extends GetView<VentanadeinformesrecaudosController> {
+  const VentanadeinformesrecaudosView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

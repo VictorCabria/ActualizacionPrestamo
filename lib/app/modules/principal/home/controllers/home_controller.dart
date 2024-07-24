@@ -2,17 +2,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/ajustes_modal.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/models/company_model.dart';
-import 'package:prestamo_mc/app/models/session_model.dart';
-import 'package:prestamo_mc/app/modules/principal/ajustes/controllers/ajustes_controller.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
-
-import '../../../../services/firebase_services/auth_service.dart';
+import '../../../../models/ajustes_modal.dart';
+import '../../../../models/cobradores_modal.dart';
+import '../../../../models/company_model.dart';
+import '../../../../models/session_model.dart';
+import '../../../../routes/app_pages.dart';
+import '../../../../services/firebase_services/auth_services.dart';
 import '../../../../services/model_services/cobradores_service.dart';
 import '../../../../services/model_services/session_service.dart';
 import '../../../../utils/utils.dart';
+import '../../ajustes/controllers/ajustes_controller.dart';
 
 class HomeController extends GetxController {
   final gestorMode = false.obs;

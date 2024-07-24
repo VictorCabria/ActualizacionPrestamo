@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/tipoprestamo.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/services/model_services/tipoprestamo_service.dart';
+import '../../../../models/tipoprestamo.dart';
+import '../../../../models/type_prestamo_model.dart';
+import '../../../../services/model_services/tipoprestamo_service.dart';
 
 class EditarprestamosController extends GetxController {
   RxList<TipoPrestamos> tipeprestamocontroller = RxList<TipoPrestamos>([]);

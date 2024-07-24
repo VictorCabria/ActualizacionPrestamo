@@ -1,12 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/barrio_modal.dart';
-import 'package:prestamo_mc/app/models/cedula_modal.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/services/model_services/barrio_service.dart';
-import 'package:prestamo_mc/app/services/model_services/cobradores_service.dart';
 
-import '../../../../services/firebase_services/auth_service.dart';
+import '../../../../models/barrio_modal.dart';
+import '../../../../models/cedula_modal.dart';
+import '../../../../models/cobradores_modal.dart';
+import '../../../../services/firebase_services/auth_services.dart';
+import '../../../../services/model_services/barrio_service.dart';
+import '../../../../services/model_services/cobradores_service.dart';
+
 
 class CreatecobradoresController extends GetxController
     with GetSingleTickerProviderStateMixin {

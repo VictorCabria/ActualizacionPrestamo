@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
-import 'package:prestamo_mc/app/models/recaudo_line_modal.dart';
-import 'package:prestamo_mc/app/models/session_model.dart';
-import 'package:prestamo_mc/app/models/transaction_model.dart';
-
+import '../../../../../models/prestamo_model.dart';
+import '../../../../../models/recaudo_line_modal.dart';
+import '../../../../../models/session_model.dart';
+import '../../../../../models/transaction_model.dart';
 import '../../../../../services/model_services/client_service.dart';
 import '../../../../../services/model_services/cobradores_service.dart';
 import '../../../../../services/model_services/conceptos_service.dart';

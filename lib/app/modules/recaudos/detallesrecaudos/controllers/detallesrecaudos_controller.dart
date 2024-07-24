@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/recaudo_line_modal.dart';
-import 'package:prestamo_mc/app/models/recaudo_model.dart';
-
 import '../../../../models/cuotas_modal.dart';
-import '../../../../models/prestamo_model.dart';
+import '../../../../models/recaudo_line_modal.dart';
+import '../../../../models/recaudo_model.dart';
 import '../../../../routes/app_pages.dart';
 import '../../../../services/model_services/client_service.dart';
 import '../../../../services/model_services/cobradores_service.dart';
@@ -94,7 +92,7 @@ class DetallesrecaudosController extends GetxController
   }
 
   ventanadetalles() {
-    Get.toNamed(Routes.VENTANARECAUDOTODOS,
+    Get.toNamed(Routes.VENTANARECAUDOTODO,
         arguments: {firebaseReferences.recaudos: recaudo});
   }
 

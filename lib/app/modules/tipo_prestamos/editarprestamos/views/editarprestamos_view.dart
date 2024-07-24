@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/editarprestamos_controller.dart';
 
 class EditarprestamosView extends GetView<EditarprestamosController> {

@@ -17,16 +17,16 @@ import 'package:flutter/foundation.dart'
 class DefaultFirebaseOptions {
   static FirebaseOptions get currentPlatform {
     if (kIsWeb) {
-      return web;
+      throw UnsupportedError(
+        'DefaultFirebaseOptions have not been configured for web - '
+        'you can reconfigure this by running the FlutterFire CLI again.',
+      );
     }
     switch (defaultTargetPlatform) {
       case TargetPlatform.android:
         return android;
       case TargetPlatform.iOS:
-        throw UnsupportedError(
-          'DefaultFirebaseOptions have not been configured for ios - '
-          'you can reconfigure this by running the FlutterFire CLI again.',
-        );
+        return ios;
       case TargetPlatform.macOS:
         throw UnsupportedError(
           'DefaultFirebaseOptions have not been configured for macos - '
@@ -49,21 +49,20 @@ class DefaultFirebaseOptions {
     }
   }
 
-  static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyBUNfNCvjfLokzA1VQTngkohXGU_8qTa7I',
-    appId: '1:268823070318:web:265ae4b10a652355a9487f',
-    messagingSenderId: '268823070318',
-    projectId: 'prestamossynergia',
-    authDomain: 'prestamossynergia.firebaseapp.com',
-    storageBucket: 'prestamossynergia.appspot.com',
-    measurementId: 'G-4958PJ90TN',
+  static const FirebaseOptions android = FirebaseOptions(
+    apiKey: 'AIzaSyC8KM3Xoj7CSQV470TWDNe5lNdYrxicAt0',
+    appId: '1:266398351639:android:8a27de0ef77d3ab1803752',
+    messagingSenderId: '266398351639',
+    projectId: 'prestamocesarsynergia',
+    storageBucket: 'prestamocesarsynergia.appspot.com',
   );
 
-  static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyD5dcI_Exy93OeCI5PKM1Vat-RyASxuHa4',
-    appId: '1:268823070318:android:a4d88989896120bfa9487f',
-    messagingSenderId: '268823070318',
-    projectId: 'prestamossynergia',
-    storageBucket: 'prestamossynergia.appspot.com',
+  static const FirebaseOptions ios = FirebaseOptions(
+    apiKey: 'AIzaSyD6MGokCCEiwP66-uh5EO9LG6jPCzkS604',
+    appId: '1:266398351639:ios:519f064a9aaa9a04803752',
+    messagingSenderId: '266398351639',
+    projectId: 'prestamocesarsynergia',
+    storageBucket: 'prestamocesarsynergia.appspot.com',
+    iosBundleId: 'com.prestamo.prestamoMc20',
   );
 }

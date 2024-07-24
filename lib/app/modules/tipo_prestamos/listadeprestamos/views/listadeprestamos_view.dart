@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-
 import '../../../../models/type_prestamo_model.dart';
+import '../../../../routes/app_pages.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/listadeprestamos_controller.dart';
 
 class ListadeprestamosView extends GetView<ListadeprestamosController> {

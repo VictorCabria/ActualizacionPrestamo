@@ -11,6 +11,8 @@ import '../../../../utils/palette.dart';
 import '../controllers/ventanacuotaprestamo_controller.dart';
 
 class VentanacuotaprestamoView extends GetView<VentanacuotaprestamoController> {
+  const VentanacuotaprestamoView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(

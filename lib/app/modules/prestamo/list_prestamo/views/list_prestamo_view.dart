@@ -2,10 +2,10 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../models/client_model.dart';
+import '../../../../models/prestamo_model.dart';
 import '../../../../models/type_prestamo_model.dart';
 import '../../../../utils/app_constants.dart';
 import '../../../../utils/palette.dart';

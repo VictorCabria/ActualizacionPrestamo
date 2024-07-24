@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/naturaleza.dart';
-import 'package:prestamo_mc/app/models/tipoconcepto.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
 
+
+import '../../../../models/naturaleza.dart';
+import '../../../../models/tipoconcepto.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/createconceptos_controller.dart';
 
 class CreateconceptosView extends GetView<CreateconceptosController> {

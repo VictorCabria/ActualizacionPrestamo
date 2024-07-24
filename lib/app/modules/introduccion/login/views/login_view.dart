@@ -1,9 +1,8 @@
-// ignore_for_file: prefer_is_empty
-
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+
 import '../../../../utils/palette.dart';
 import '../controllers/login_controller.dart';
 
@@ -138,9 +137,9 @@ class KeyLogin extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    buildNumber(1, controller.agregar),
+                     buildNumber(1, controller.agregar),
                     buildNumber(2, controller.agregar),
-                    buildNumber(3, controller.agregar),
+                    buildNumber(3, controller.agregar), 
                   ],
                 ),
               ),
@@ -150,9 +149,9 @@ class KeyLogin extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    buildNumber(4, controller.agregar),
+                     buildNumber(4, controller.agregar),
                     buildNumber(5, controller.agregar),
-                    buildNumber(6, controller.agregar),
+                    buildNumber(6, controller.agregar), 
                   ],
                 ),
               ),
@@ -162,9 +161,9 @@ class KeyLogin extends StatelessWidget {
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
-                    buildNumber(7, controller.agregar),
+                     buildNumber(7, controller.agregar),
                     buildNumber(8, controller.agregar),
-                    buildNumber(9, controller.agregar),
+                    buildNumber(9, controller.agregar), 
                   ],
                 ),
               ),
@@ -175,15 +174,15 @@ class KeyLogin extends StatelessWidget {
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: <Widget>[
                     buildspace(),
-                    buildNumber(0, controller.agregar),
+                    buildNumber(0, controller.agregar), 
                     buildBackspace(),
                   ],
                 ),
               ),
               const SizedBox(height: 20),
-              /* TextButton(
+               TextButton(
                   onPressed: () => controller.getToHome(),
-                  child: const Text("Login")), */
+                  child: const Text("Login")), 
             ],
           ),
         ),
@@ -300,7 +299,7 @@ class PassLogin extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
           child: Container(
-            height: 10.h,
+         
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(20)),
             child: TextFormField(
@@ -345,7 +344,7 @@ class PassLogin extends StatelessWidget {
         Padding(
           padding: const EdgeInsets.symmetric(vertical: 0, horizontal: 20),
           child: Container(
-            height: 10.h,
+            
             decoration: BoxDecoration(
                 color: Colors.white, borderRadius: BorderRadius.circular(20)),
             child: TextFormField(
@@ -386,7 +385,7 @@ class PassLogin extends StatelessWidget {
             ),
           ),
         ),
-        const SizedBox(height: 15),
+        const SizedBox(height: 30),
         Material(
           borderRadius: BorderRadius.circular(20),
           color: Palette.primary,
@@ -397,7 +396,14 @@ class PassLogin extends StatelessWidget {
               await controller
                   .getusuarios(controller.emailcontroller.toString());
 
-              if (controller.usuario!.isAdmin == true) {
+               
+              if(controller.usuario == null){
+                Get.dialog(const AlertDialog(
+                  title: Text("ESTE USUARIO NO EXISTE"),
+                  content: Text("O ESTA MAL ESCRITO")));
+              }
+
+              else if (controller.usuario!.isAdmin == true) {
                 controller.authUser(controller.emailcontroller.text,
                     controller.passwordcontroller.text);
               } else {

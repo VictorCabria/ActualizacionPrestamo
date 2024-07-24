@@ -2,28 +2,28 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/barrio_modal.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/models/cuotas_modal.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/services/model_services/barrio_service.dart';
-import 'package:prestamo_mc/app/services/model_services/prestamo_service.dart';
 import '../../../../models/ajustes_modal.dart';
+import '../../../../models/barrio_modal.dart';
+import '../../../../models/client_model.dart';
+import '../../../../models/cobradores_modal.dart';
+import '../../../../models/cuotas_modal.dart';
 import '../../../../models/diasnocobro_modal.dart';
+import '../../../../models/prestamo_model.dart';
+import '../../../../models/type_prestamo_model.dart';
 import '../../../../models/zone_model.dart';
 import '../../../../routes/app_pages.dart';
-import '../../../../services/model_services/ajustes_service.dart';
+import '../../../../services/model_services/ajustes_services.dart';
+import '../../../../services/model_services/barrio_service.dart';
 import '../../../../services/model_services/client_service.dart';
 import '../../../../services/model_services/cuota_service.dart';
 import '../../../../services/model_services/diascobro_service.dart';
+import '../../../../services/model_services/prestamo_service.dart';
 import '../../../../services/model_services/session_service.dart';
 import '../../../../services/model_services/tipoprestamo_service.dart';
 import '../../../../services/model_services/zona_service.dart';
 import '../../../../utils/app_constants.dart';
 import '../../../principal/home/controllers/home_controller.dart';
-import 'package:date_utils/date_utils.dart' as dt;
+
 
 class RenovacionprestamoController extends GetxController {
   final homeControll = Get.find<HomeController>();
@@ -51,6 +51,7 @@ class RenovacionprestamoController extends GetxController {
   final pagodercaudo = DateTime.now();
   RxString fecha = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
   RxString fechadepago = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
+  late TextEditingController fromDateControler2;
   //inicializar listas
   final clients = [].obs;
   final zonas = [].obs;
@@ -74,7 +75,7 @@ class RenovacionprestamoController extends GetxController {
   final fecharecaudo = "".obs;
   final detalle = ''.obs;
   final diasrefinan = 0.obs;
-
+ DateTime selectedDate2 = DateTime.now();
   final cliente = ''.obs;
 
   final formkey = GlobalKey<FormState>();
@@ -85,6 +86,7 @@ class RenovacionprestamoController extends GetxController {
     clientecontroller = TextEditingController();
     recorridocontroller = TextEditingController();
     montoTextController = TextEditingController();
+    fromDateControler2 = TextEditingController(text: prestamo!.fecha!);
     monto.value = prestamo!.saldoPrestamo!;
     montoTextController.text = monto.value.toString();
     textController!.text = valorCuota.value;
@@ -297,12 +299,12 @@ class RenovacionprestamoController extends GetxController {
   }
 
   void renovarprestamo() async {
-    final fechavencido = getfechadevencimiento(
-        DateTime.parse(fechadepago.value), tipoPrestamo!.meses!);
+    /* final fechavencido = getfechadevencimiento(
+        DateTime.parse(fechadepago.value), tipoPrestamo!.meses!); */
     tipoPrestam2 =
         await typePrestamoService.selecttypeprestamoid(tipoPrestamo!.id!);
 
-    var aux = DateTime.parse(fechadepago.value);
+    var aux = DateTime.parse(fromDateControler2.text);
 
     final fechaactualizada = "".obs;
     if (tipoPrestam2!.tipo['tipo'] == "Diario") {
@@ -417,11 +419,11 @@ class RenovacionprestamoController extends GetxController {
       clienteId: client!.id,
       cobradorId: cobrador!.id,
       detalle: detalle.value,
-      fecha: fecha.value,
+      fecha: fromDateControler2.text,
       monto: double.parse(montoTextController.text),
       zonaId: zona!.id,
       estado: StatusPrestamo.aldia.name,
-      fechalimite: fechavencido.toString(),
+      fechalimite: "fechavencido.toString()",
       fechaPago: fechaactualizada.value,
       recorrido: client!.id,
       refinanciado: false,
@@ -443,7 +445,7 @@ class RenovacionprestamoController extends GetxController {
 
         prestamo!.renovado = isrenovado.value;
         prestamo!.estado = StatusPrestamo.renovado.name;
-        prestamo!.fechaPago = fechadepago.value;
+        prestamo!.fechaPago = fromDateControler2.text;
         prestamo!.saldoPrestamo = 0;
         /* prestamo!.saldoPrestamo! - double.parse(montoTextController.text); */
         /* if (prestamocrear.saldoPrestamo! > 0) {
@@ -507,7 +509,7 @@ class RenovacionprestamoController extends GetxController {
     }
   }
 
-  getfechadevencimiento(DateTime fechainicial, int numerodemeses) {
+/*   getfechadevencimiento(DateTime fechainicial, int numerodemeses) {
     var init = fechainicial;
     for (int i = 1; i <= numerodemeses; i++) {
       final fechas = dt.DateUtils.daysInMonth(init);
@@ -518,5 +520,5 @@ class RenovacionprestamoController extends GetxController {
     }
 
     return init;
-  }
+  } */
 }

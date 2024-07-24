@@ -9,6 +9,8 @@ import '../../../../utils/palette.dart';
 import '../controllers/diasdenocobro_controller.dart';
 
 class DiasdenocobroView extends GetView<DiasdenocobroController> {
+  const DiasdenocobroView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Obx(() => Scaffold(

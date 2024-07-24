@@ -1,27 +1,27 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:infinite_listview/infinite_listview.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
-import 'package:prestamo_mc/app/models/session_model.dart';
-import 'package:prestamo_mc/app/services/model_services/client_service.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
 import '../../../../models/ajustes_modal.dart';
+import '../../../../models/client_model.dart';
+import '../../../../models/cobradores_modal.dart';
 import '../../../../models/cuotas_modal.dart';
 import '../../../../models/diasnocobro_modal.dart';
+import '../../../../models/prestamo_model.dart';
+import '../../../../models/session_model.dart';
 import '../../../../models/type_prestamo_model.dart';
 import '../../../../routes/app_pages.dart';
-import '../../../../services/model_services/ajustes_service.dart';
+
+import '../../../../services/model_services/ajustes_services.dart';
+import '../../../../services/model_services/client_service.dart';
 import '../../../../services/model_services/cuota_service.dart';
 import '../../../../services/model_services/diascobro_service.dart';
 import '../../../../services/model_services/prestamo_service.dart';
 import '../../../../services/model_services/recaudos_service.dart';
 import '../../../../services/model_services/session_service.dart';
 import '../../../../services/model_services/tipoprestamo_service.dart';
+import '../../../../utils/references.dart';
 import '../../../../utils/utils.dart';
 import '../../../principal/home/controllers/home_controller.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:date_utils/date_utils.dart' as dt;
+
 
 class ListPrestamoController extends GetxController {
   RxBool isMultiSelectionEnabled = false.obs;
@@ -656,7 +656,7 @@ class ListPrestamoController extends GetxController {
       prestamoService.updateprestamo(prestamos[i]);
     }
   } */
-
+/* 
   getfechadevencimiento(DateTime fechainicial, int numerodemeses) {
     var init = fechainicial;
     for (int i = 1; i <= numerodemeses; i++) {
@@ -668,5 +668,5 @@ class ListPrestamoController extends GetxController {
     }
 
     return init;
-  }
+  } */
 }

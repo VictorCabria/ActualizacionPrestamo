@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 
 import '../../models/session_model.dart';
 import '../../utils/references.dart';
-import '../firebase_services/database_service.dart';
+import '../firebase_services/database_services.dart';
 
 class SessionService {
   static String sessionReference = firebaseReferences.sessions;

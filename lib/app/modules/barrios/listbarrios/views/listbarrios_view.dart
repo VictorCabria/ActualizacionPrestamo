@@ -1,12 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/barrio_modal.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
-
 import '../../../../models/barrio_modal.dart';
+import '../../../../routes/app_pages.dart';
 import '../../../../utils/palette.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
 import '../controllers/listbarrios_controller.dart';
 
 class ListbarriosView extends GetView<ListbarriosController> {

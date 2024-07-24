@@ -1,11 +1,9 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-
 import '../../../../models/concepto_model.dart';
+import '../../../../models/type_prestamo_model.dart';
 import '../../../../routes/app_pages.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/ajustes_controller.dart';
 
 class AjustesView extends GetView<AjustesController> {
@@ -119,7 +117,9 @@ class Page1 extends StatelessWidget {
               )),
           Expanded(
               child: IconButton(
-            onPressed: () {},
+            onPressed: () {
+              Get.toNamed(Routes.CREATECONCEPTOS);
+            },
             icon: const Icon(
               Icons.add_outlined,
               color: Palette.primary,
@@ -169,7 +169,9 @@ class Page1 extends StatelessWidget {
           Expanded(
               child: IconButton(
             icon: const Icon(Icons.add_outlined, color: Palette.primary),
-            onPressed: (() {}),
+            onPressed: (() {
+              Get.toNamed(Routes.CREATECONCEPTOS);
+            }),
           ))
         ]),
         const SizedBox(height: 15),

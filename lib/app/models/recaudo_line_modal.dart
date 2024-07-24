@@ -1,5 +1,7 @@
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
-import 'package:prestamo_mc/app/models/recaudo_model.dart';
+
+
+import 'package:prestamo_mc_2_0/app/models/prestamo_model.dart';
+import 'package:prestamo_mc_2_0/app/models/recaudo_model.dart';
 
 class RecaudoLine {
   String? id;

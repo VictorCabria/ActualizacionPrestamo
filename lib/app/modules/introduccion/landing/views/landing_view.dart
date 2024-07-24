@@ -6,8 +6,7 @@ import '../controllers/landing_controller.dart';
 
 class LandingView extends GetView<LandingController> {
   const LandingView({Key? key}) : super(key: key);
-
-  @override
+ @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: Obx(() => controller.loading.value

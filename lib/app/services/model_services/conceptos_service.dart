@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
+import 'package:prestamo_mc_2_0/app/services/firebase_services/database_services.dart';
+import 'package:prestamo_mc_2_0/app/utils/references.dart';
 
 import '../../models/concepto_model.dart';
-import '../firebase_services/database_service.dart';
 
 class ConceptoService {
   static String conceptoReference = firebaseReferences.concepto;

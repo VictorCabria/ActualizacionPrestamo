@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:prestamo_mc/app/models/zone_model.dart';
-
+import '../../models/zone_model.dart';
 import '../../utils/references.dart';
-import '../firebase_services/database_service.dart';
+import '../firebase_services/database_services.dart';
+
 
 class ZonaService {
   static String zonaReference = firebaseReferences.zona;

@@ -1,14 +1,15 @@
-// ignore_for_file: unrelated_type_equality_checks
-
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_login/flutter_login.dart';
 import 'package:get/get.dart';
 import 'package:firebase_auth/firebase_auth.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
-import 'package:prestamo_mc/app/services/model_services/cobradores_service.dart';
+import 'package:prestamo_mc_2_0/app/models/user_model.dart';
 
-import '../../../../models/user_model.dart';
+import '../../../../routes/app_pages.dart';
+import '../../../../services/firebase_services/auth_services.dart';
+import '../../../../services/model_services/cobradores_service.dart';
 import '../../../../services/model_services/user_service.dart';
+
 
 class LoginController extends GetxController {
   final gestorMode = false.obs;
@@ -40,7 +41,7 @@ class LoginController extends GetxController {
     if (usuario!.isAdmin == true) {
       authUser(emailcontroller.text, passwordcontroller.text);
     } else {
-      Get.dialog(AlertDialog(
+      Get.dialog(const AlertDialog(
         title: Text("ERROR DEL SISTEMA"),
         content: Text("USTED NO ES ADMIN"),
       ));
@@ -127,23 +128,37 @@ class LoginController extends GetxController {
     }
   } */
 
-  agregar(int val) async {
-    if (formkey.currentState!.validate()) {
-      code.value += "$val";
-      if (code.value.length == 4) {
-        var response = await cobradoresService.loginCobradores(code.value);
-        if (response != null) {
+
+ Future<String?> login(LoginData data) async {
+    try {
+      var response =
+          await auth.signIn(email: data.name, password: data.password);
+      if (response != '') {        
+        return response;        
+      }     
+      return response;
+    } on Exception catch (e) {
+      return 'Error logging in.';
+    }
+    
+  }
+   agregar(int val) async {
+     if (formkey.currentState!.validate()) {
+       code.value += "$val";
+       if (code.value.length == 4) {
+         var response = await cobradoresService.loginCobradores(code.value);
+       if (response != null) {
           Get.toNamed(Routes.HOME, arguments: {
             'gestorMode': gestorMode.value,
             'cobrador': response
           });
         } else {
-          Get.dialog(const AlertDialog(
+           Get.dialog(const AlertDialog(
             title: Text("Codigo Incorrecto"),
           ));
           code.value = '';
-        }
-      }
-    }
+         }
+       }
+     }
   }
 }

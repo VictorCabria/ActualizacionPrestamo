@@ -1,21 +1,22 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/models/concepto_model.dart';
-import 'package:prestamo_mc/app/models/transaction_model.dart';
-import 'package:prestamo_mc/app/modules/principal/home/controllers/home_controller.dart';
-import 'package:prestamo_mc/app/services/model_services/cobradores_service.dart';
-import 'package:prestamo_mc/app/services/model_services/conceptos_service.dart';
 import 'package:intl/intl.dart';
 
+import '../../../../models/cobradores_modal.dart';
+import '../../../../models/concepto_model.dart';
+import '../../../../models/transaction_model.dart';
+import '../../../../services/model_services/cobradores_service.dart';
+import '../../../../services/model_services/conceptos_service.dart';
 import '../../../../services/model_services/transacciones_service.dart';
+import '../../../principal/home/controllers/home_controller.dart';
 
 class CreatetransaccionesController extends GetxController {
   RxString fecha = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
   final formkey = GlobalKey<FormState>();
   late TextEditingController detallescontroller;
   RxBool isloading = false.obs;
+  DateTime selectedDate = DateTime.now();
   final homeControll = Get.find<HomeController>();
   RxList<Concepto> conceptocontroller = RxList<Concepto>([]);
   late Stream<List<Concepto>> conceptoStream;
@@ -26,12 +27,14 @@ class CreatetransaccionesController extends GetxController {
   RxList<Cobradores> cobradorescontroller = RxList<Cobradores>([]);
   late Stream<List<Cobradores>> cobradores2Stream;
   Cobradores? selectobradores;
+   late TextEditingController fromDateControler;
   @override
   void onInit() {
     super.onInit();
     conceptoStream = getconcepto();
     cobradores2Stream = getcobradores();
     detallescontroller = TextEditingController();
+    fromDateControler = TextEditingController(text: fecha.value);
 
     init();
   }
@@ -70,7 +73,7 @@ class CreatetransaccionesController extends GetxController {
       total.value = debitoocredito.value - valor.value;
     }
     Transacciones transacciones = Transacciones(
-        fecha: fecha.value,
+        fecha: fromDateControler.text,
         idSession: homeControll.session!.id,
         concept: selectconcepto!.id,
         valor: valor.value,

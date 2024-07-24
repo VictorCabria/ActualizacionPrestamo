@@ -1,6 +1,6 @@
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/services/model_services/tipoprestamo_service.dart';
+import '../../../../models/type_prestamo_model.dart';
+import '../../../../services/model_services/tipoprestamo_service.dart';
 
 class SeachtipoprestamoController extends GetxController {
   RxList<TypePrestamo> typeprstamo = RxList<TypePrestamo>([]);

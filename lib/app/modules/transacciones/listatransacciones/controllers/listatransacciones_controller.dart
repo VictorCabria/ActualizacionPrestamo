@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/models/transaction_model.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
-import 'package:prestamo_mc/app/services/model_services/conceptos_service.dart';
-import 'package:prestamo_mc/app/services/model_services/transacciones_service.dart';
-import 'package:prestamo_mc/app/utils/app_constants.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
-
+import '../../../../models/cobradores_modal.dart';
 import '../../../../models/concepto_model.dart';
+import '../../../../models/transaction_model.dart';
+import '../../../../routes/app_pages.dart';
 import '../../../../services/model_services/cobradores_service.dart';
+import '../../../../services/model_services/conceptos_service.dart';
 import '../../../../services/model_services/session_service.dart';
+import '../../../../services/model_services/transacciones_service.dart';
+import '../../../../utils/app_constants.dart';
+import '../../../../utils/references.dart';
 import '../../../principal/home/controllers/home_controller.dart';
 
 class ListatransaccionesController extends GetxController {

@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
+import '../../../../models/cobradores_modal.dart';
 import '../../../../models/transaction_model.dart';
 import '../../../../routes/app_pages.dart';
 import '../../../../services/model_services/cobradores_service.dart';
@@ -25,10 +25,18 @@ class InformetransaccionesController extends GetxController {
   RxList<Transacciones> transaccionesnuevos = RxList<Transacciones>([]);
   RxString fecha = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
   RxString fechafinal = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
+  DateTime selectedDate = DateTime.now();
+  DateTime selectedDate2 = DateTime.now();
+  late TextEditingController fromDateControler;
+  late TextEditingController fromDateControler2;
+
   @override
   void onInit() {
     transaccionesStream = gettransacciones();
     cobradores2Stream = getcobradores();
+    fromDateControler = TextEditingController(text: fecha.value);
+    fromDateControler2 = TextEditingController(text: fechafinal.value);
+    init();
     init();
     super.onInit();
   }
@@ -66,8 +74,8 @@ class InformetransaccionesController extends GetxController {
 
   metodobusqueda() {
     transaccionesnuevos.clear();
-    final fechainicio = DateTime.parse(fecha.value);
-    final fechaultima = DateTime.parse(fechafinal.value);
+    final fechainicio = DateTime.parse(fromDateControler.text);
+    final fechaultima = DateTime.parse(fromDateControler2.text);
 
     var response = transacciones.value = consultar
         .where((element) =>
@@ -82,8 +90,8 @@ class InformetransaccionesController extends GetxController {
 
   metodobusquedacobrador() {
     transaccionesnuevos.clear();
-    final fechainicio = DateTime.parse(fecha.value);
-    final fechaultima = DateTime.parse(fechafinal.value);
+    final fechainicio = DateTime.parse(fromDateControler.text);
+    final fechaultima = DateTime.parse(fromDateControler2.text);
     final cobradorid = selectobradores;
 
     var response = transacciones.value = consultar

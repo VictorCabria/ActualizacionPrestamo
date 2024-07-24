@@ -1,13 +1,17 @@
-import 'package:date_time_picker/date_time_picker.dart';
+
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
+import 'package:intl/intl.dart';
 import 'package:printing/printing.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
 import '../../../../utils/palette.dart';
 import '../controllers/informerecaudo_controller.dart';
 
 class InformerecaudoView extends GetView<InformerecaudoController> {
+  const InformerecaudoView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -36,76 +40,112 @@ class InformerecaudoView extends GetView<InformerecaudoController> {
                     height: 20,
                   ),
                   Container(
-                      child: DateTimePicker(
-                    type: DateTimePickerType.date,
-                    initialValue: controller.fecha.value,
-                    dateMask: "yyyy-MM-dd",
-                    firstDate: DateTime(1900),
-                    lastDate: DateTime(2100),
-                    onChanged: (value) => controller.fecha.value = value,
-                    decoration: const InputDecoration(
-                        focusColor: Palette.primary,
-                        hoverColor: Palette.primary,
-                        prefixIcon:
-                            Icon(Icons.calendar_month, color: Palette.primary),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(40.0),
-                          ),
-                          borderSide: BorderSide(
-                            color: Palette.primary,
-                            width: 1,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(40.0),
-                          ),
-                          borderSide: BorderSide(
-                            color: Palette.primary,
-                          ),
-                        ),
-                        labelText: "Desde",
-                        fillColor: Palette.primary,
-                        labelStyle: TextStyle(color: Palette.primary)),
-                  )),
+                    height: 10.h,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Container(
+                      height: 60,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: TextFormField(
+                        onTap: () async {
+                          final DateTime? pickedTime = await showDatePicker(
+                              context: context,
+                              initialDate: controller.selectedDate,
+                              firstDate: DateTime(2015, 8),
+                              lastDate: DateTime(2101));
+                          if (pickedTime != null) {
+                            controller.fromDateControler.text =
+                                DateFormat('yyyy-MM-dd').format(pickedTime);
+                          }
+                        },
+                        autofocus: false,
+                        keyboardType: TextInputType.number,
+                        cursorColor: Palette.primary,
+                        controller: controller.fromDateControler,
+                        onSaved: (value) {
+                          controller.fromDateControler.text = value!;
+                        },
+                        decoration: const InputDecoration(
+                            prefixIcon:
+                                Icon(Icons.headset, color: Palette.primary),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(40.0),
+                              ),
+                              borderSide: BorderSide(color: Palette.primary),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(40.0),
+                              ),
+                              borderSide: BorderSide(
+                                color: Palette.primary,
+                              ),
+                            ),
+                            labelText: "desde",
+                            fillColor: Palette.primary,
+                            labelStyle: TextStyle(color: Palette.primary)),
+                      ),
+                    ),
+                  ),
                   const SizedBox(
                     height: 15,
                   ),
                   Container(
-                      child: DateTimePicker(
-                    type: DateTimePickerType.date,
-                    dateMask: "yyyy-MM-dd",
-                    initialValue: controller.fechafinal.value,
-                    firstDate: DateTime(1900),
-                    lastDate: DateTime(2100),
-                    onChanged: (value) => controller.fechafinal.value = value,
-                    decoration: const InputDecoration(
-                        focusColor: Palette.primary,
-                        hoverColor: Palette.primary,
-                        prefixIcon:
-                            Icon(Icons.calendar_month, color: Palette.primary),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(40.0),
-                          ),
-                          borderSide: BorderSide(
-                            color: Palette.primary,
-                            width: 1,
-                          ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(40.0),
-                          ),
-                          borderSide: BorderSide(
-                            color: Palette.primary,
-                          ),
-                        ),
-                        labelText: "Hasta",
-                        fillColor: Palette.primary,
-                        labelStyle: TextStyle(color: Palette.primary)),
-                  )),
+                    height: 10.h,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: Container(
+                      height: 60,
+                      decoration: BoxDecoration(
+                          color: Colors.white,
+                          borderRadius: BorderRadius.circular(20)),
+                      child: TextFormField(
+                        onTap: () async {
+                          final DateTime? pickedTime = await showDatePicker(
+                              context: context,
+                              initialDate: controller.selectedDate2,
+                              firstDate: DateTime(2015, 8),
+                              lastDate: DateTime(2101));
+                          if (pickedTime != null) {
+                            controller.fromDateControler2.text =
+                                DateFormat('yyyy-MM-dd').format(pickedTime);
+                          }
+                        },
+                        autofocus: false,
+                        keyboardType: TextInputType.number,
+                        cursorColor: Palette.primary,
+                        controller: controller.fromDateControler2,
+                        onSaved: (value) {
+                          controller.fromDateControler2.text = value!;
+                        },
+                        decoration: const InputDecoration(
+                            prefixIcon:
+                                Icon(Icons.headset, color: Palette.primary),
+                            enabledBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(40.0),
+                              ),
+                              borderSide: BorderSide(color: Palette.primary),
+                            ),
+                            focusedBorder: OutlineInputBorder(
+                              borderRadius: BorderRadius.all(
+                                Radius.circular(40.0),
+                              ),
+                              borderSide: BorderSide(
+                                color: Palette.primary,
+                              ),
+                            ),
+                            labelText: "hasta",
+                            fillColor: Palette.primary,
+                            labelStyle: TextStyle(color: Palette.primary)),
+                      ),
+                    ),
+                  ),
                 ]),
               ),
             ),

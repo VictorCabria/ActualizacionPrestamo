@@ -1,9 +1,8 @@
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
-import 'package:prestamo_mc/app/services/model_services/prestamo_service.dart';
-import 'package:prestamo_mc/app/services/model_services/tipoprestamo_service.dart';
-
+import '../../../../models/prestamo_model.dart';
 import '../../../../services/model_services/client_service.dart';
+import '../../../../services/model_services/prestamo_service.dart';
+import '../../../../services/model_services/tipoprestamo_service.dart';
 
 class SeachprestamosController extends GetxController {
   //TODO: Implement SeachprestamosController

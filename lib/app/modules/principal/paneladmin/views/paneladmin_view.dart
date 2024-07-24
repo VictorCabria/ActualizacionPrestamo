@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-import 'package:prestamo_mc/app/utils/text_styles.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../routes/app_pages.dart';
+import '../../../../utils/palette.dart';
+import '../../../../utils/text_styles.dart';
 import '../controllers/paneladmin_controller.dart';
 
 class PaneladminView extends GetView<PaneladminController> {
@@ -203,7 +203,7 @@ class PaneladminView extends GetView<PaneladminController> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.toNamed(Routes.LISTACONCEPTOS);
+                                   Get.toNamed(Routes.LISTACONCEPTOS); 
                                 },
                                 child: Card(
                                   child: Container(
@@ -259,7 +259,7 @@ class PaneladminView extends GetView<PaneladminController> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.toNamed(Routes.LISTZONAS);
+                                   Get.toNamed(Routes.LISTZONAS); 
                                 },
                                 child: Card(
                                   child: Container(
@@ -287,7 +287,7 @@ class PaneladminView extends GetView<PaneladminController> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.toNamed(Routes.DIASDENOCOBRO);
+                                   Get.toNamed(Routes.DIASDENOCOBRO); 
                                 },
                                 child: Card(
                                   child: Container(
@@ -316,7 +316,7 @@ class PaneladminView extends GetView<PaneladminController> {
                               ),
                               child: GestureDetector(
                                 onTap: () {
-                                  Get.toNamed(Routes.LISTANEGRA);
+                                   Get.toNamed(Routes.LISTASNEGRA); 
                                 },
                                 child: Card(
                                   child: Container(

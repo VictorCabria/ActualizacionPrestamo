@@ -2,9 +2,8 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/barrio_modal.dart';
-import 'package:prestamo_mc/app/models/cedula_modal.dart';
-
+import '../../../../models/barrio_modal.dart';
+import '../../../../models/cedula_modal.dart';
 import '../../../../models/cobradores_modal.dart';
 import '../../../../services/model_services/barrio_service.dart';
 import '../../../../services/model_services/cobradores_service.dart';

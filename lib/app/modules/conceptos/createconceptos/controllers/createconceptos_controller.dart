@@ -1,12 +1,12 @@
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/naturaleza.dart';
-import 'package:prestamo_mc/app/models/tipoconcepto.dart';
-import 'package:prestamo_mc/app/services/model_services/conceptos_service.dart';
+
 
 import '../../../../models/concepto_model.dart';
 
+import '../../../../models/naturaleza.dart';
+import '../../../../models/tipoconcepto.dart';
 import '../../../../services/model_services/conceptos_service.dart';
 
 class CreateconceptosController extends GetxController {

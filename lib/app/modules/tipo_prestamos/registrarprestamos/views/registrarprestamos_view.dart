@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/tipoprestamo.dart';
+import '../../../../models/tipoprestamo.dart';
 import '../../../../utils/palette.dart';
 import '../controllers/registrarprestamos_controller.dart';
 

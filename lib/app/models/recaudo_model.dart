@@ -1,4 +1,6 @@
-import 'package:prestamo_mc/app/utils/app_constants.dart';
+
+
+import 'package:prestamo_mc_2_0/app/utils/app_constants.dart';
 
 class Recaudo {
   String? id;

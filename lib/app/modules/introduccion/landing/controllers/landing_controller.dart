@@ -1,5 +1,6 @@
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
+
+import '../../../../routes/app_pages.dart';
 
 class LandingController extends GetxController {
   var loading = false.obs;

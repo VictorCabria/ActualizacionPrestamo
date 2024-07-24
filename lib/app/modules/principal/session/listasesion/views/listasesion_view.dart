@@ -1,10 +1,8 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
+import '../../../../../models/cobradores_modal.dart';
 import '../../../../../models/session_model.dart';
 import '../../../../../routes/app_pages.dart';
 import '../../../../../utils/palette.dart';

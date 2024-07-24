@@ -1,9 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:prestamo_mc/app/models/barrio_modal.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
+import '../../models/barrio_modal.dart';
+import '../../utils/references.dart';
+import '../firebase_services/database_services.dart';
 
-import '../firebase_services/database_service.dart';
 
 class BarrioService {
   static String barriosReference = firebaseReferences.barrios;

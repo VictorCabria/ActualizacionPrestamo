@@ -2,10 +2,9 @@
 
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/zone_model.dart';
-import 'package:prestamo_mc/app/services/model_services/barrio_service.dart';
-
 import '../../../../models/barrio_modal.dart';
+import '../../../../models/zone_model.dart';
+import '../../../../services/model_services/barrio_service.dart';
 import '../../../../services/model_services/zona_service.dart';
 
 class EditbarriosController extends GetxController {

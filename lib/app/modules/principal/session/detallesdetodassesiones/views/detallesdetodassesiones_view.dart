@@ -1,17 +1,15 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
+import '../../../../../models/client_model.dart';
 import '../../../../../models/cobradores_modal.dart';
 import '../../../../../models/concepto_model.dart';
 import '../../../../../models/prestamo_model.dart';
 import '../../../../../models/recaudo_line_modal.dart';
 import '../../../../../models/transaction_model.dart';
 import '../../../../../models/type_prestamo_model.dart';
+import '../../../../../utils/palette.dart';
 import '../controllers/detallesdetodassesiones_controller.dart';
 
 class DetallesdetodassesionesView

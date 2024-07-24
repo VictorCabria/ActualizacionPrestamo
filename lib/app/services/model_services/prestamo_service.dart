@@ -1,8 +1,9 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
+import '../../models/prestamo_model.dart';
 import '../../utils/references.dart';
-import '../firebase_services/database_service.dart';
+import '../firebase_services/database_services.dart';
+
 
 class PrestamoService {
   static String prestamoReference = firebaseReferences.prestamos;

@@ -1,9 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-
 import '../../models/cuotas_modal.dart';
 import '../../utils/references.dart';
-import '../firebase_services/database_service.dart';
+import '../firebase_services/database_services.dart';
 
 class CuotaService {
   static String cuotaReference = firebaseReferences.cuota;

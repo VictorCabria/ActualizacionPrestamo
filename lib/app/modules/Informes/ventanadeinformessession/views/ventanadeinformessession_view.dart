@@ -8,6 +8,8 @@ import '../controllers/ventanadeinformessession_controller.dart';
 
 class VentanadeinformessessionView
     extends GetView<VentanadeinformessessionController> {
+  const VentanadeinformessessionView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

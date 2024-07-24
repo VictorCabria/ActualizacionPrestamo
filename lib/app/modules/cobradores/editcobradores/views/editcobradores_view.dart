@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
 import '../../../../utils/palette.dart';
 import '../controllers/editcobradores_controller.dart';
 

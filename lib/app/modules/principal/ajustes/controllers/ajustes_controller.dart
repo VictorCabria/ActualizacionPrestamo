@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/ajustes_modal.dart';
-import 'package:prestamo_mc/app/models/concepto_model.dart';
-import 'package:prestamo_mc/app/modules/principal/home/controllers/home_controller.dart';
-import 'package:prestamo_mc/app/services/model_services/ajustes_service.dart';
-import 'package:prestamo_mc/app/services/model_services/tipoprestamo_service.dart';
 
+
+import '../../../../models/ajustes_modal.dart';
+import '../../../../models/concepto_model.dart';
 import '../../../../models/type_prestamo_model.dart';
+import '../../../../services/model_services/ajustes_services.dart';
 import '../../../../services/model_services/conceptos_service.dart';
+import '../../../../services/model_services/tipoprestamo_service.dart';
+import '../../home/controllers/home_controller.dart';
+
 
 class AjustesController extends GetxController
     with GetSingleTickerProviderStateMixin {

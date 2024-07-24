@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
-import 'package:prestamo_mc/app/models/recaudo_line_modal.dart';
-import 'package:prestamo_mc/app/models/recaudo_model.dart';
-import 'package:prestamo_mc/app/utils/utils.dart';
 import '../../../../models/client_model.dart';
+import '../../../../models/prestamo_model.dart';
+import '../../../../models/recaudo_line_modal.dart';
+import '../../../../models/recaudo_model.dart';
 import '../../../../services/model_services/client_service.dart';
 import '../../../../services/model_services/prestamo_service.dart';
 import '../../../../services/model_services/recaudos_service.dart';
+import '../../../../utils/app_constants.dart';
 import '../../../../utils/palette.dart';
 import '../../../principal/home/controllers/home_controller.dart';
 

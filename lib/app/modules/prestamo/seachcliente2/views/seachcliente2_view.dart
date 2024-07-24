@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
 
+import '../../../../models/client_model.dart';
 import '../../../../routes/app_pages.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/seachcliente2_controller.dart';
 
 class Seachcliente2View extends GetView<Seachcliente2Controller> {

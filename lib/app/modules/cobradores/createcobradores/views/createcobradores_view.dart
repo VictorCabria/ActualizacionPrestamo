@@ -1,9 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-
 import '../../../../models/barrio_modal.dart';
 import '../../../../models/cedula_modal.dart';
 import '../../../../utils/palette.dart';

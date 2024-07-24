@@ -1,23 +1,22 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
-import 'package:prestamo_mc/app/models/recaudo_line_modal.dart';
-import 'package:prestamo_mc/app/services/model_services/client_service.dart';
-import 'package:prestamo_mc/app/services/model_services/zona_service.dart';
-import 'package:prestamo_mc/app/utils/app_constants.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
-
 import '../../../../models/ajustes_modal.dart';
 import '../../../../models/cuotas_modal.dart';
 import '../../../../models/diasnocobro_modal.dart';
+import '../../../../models/prestamo_model.dart';
+import '../../../../models/recaudo_line_modal.dart';
 import '../../../../models/type_prestamo_model.dart';
 import '../../../../routes/app_pages.dart';
-import '../../../../services/model_services/ajustes_service.dart';
+import '../../../../services/model_services/ajustes_services.dart';
+import '../../../../services/model_services/client_service.dart';
 import '../../../../services/model_services/cobradores_service.dart';
 import '../../../../services/model_services/cuota_service.dart';
 import '../../../../services/model_services/diascobro_service.dart';
 import '../../../../services/model_services/recaudos_service.dart';
 import '../../../../services/model_services/tipoprestamo_service.dart';
+import '../../../../services/model_services/zona_service.dart';
+import '../../../../utils/app_constants.dart';
+import '../../../../utils/references.dart';
 import '../../../principal/home/controllers/home_controller.dart';
 
 class DetalleprestamoController extends GetxController
@@ -86,7 +85,6 @@ class DetalleprestamoController extends GetxController
   }
 
   getcuota2() async {
-    print("Id de prestamo${prestamo!.id}");
 
     var response =
         await cuotaService.getlistacuotasub(documentId: prestamo!.id!);

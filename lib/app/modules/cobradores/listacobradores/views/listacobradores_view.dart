@@ -1,12 +1,8 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-
 import '../../../../models/cobradores_modal.dart';
 import '../../../../routes/app_pages.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/listacobradores_controller.dart';
 
 class ListacobradoresView extends GetView<ListacobradoresController> {

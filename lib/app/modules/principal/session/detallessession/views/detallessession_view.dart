@@ -2,15 +2,15 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/models/concepto_model.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
+import '../../../../../models/client_model.dart';
 import '../../../../../models/cobradores_modal.dart';
+import '../../../../../models/concepto_model.dart';
 import '../../../../../models/prestamo_model.dart';
 import '../../../../../models/recaudo_line_modal.dart';
 import '../../../../../models/transaction_model.dart';
+import '../../../../../models/type_prestamo_model.dart';
+import '../../../../../utils/palette.dart';
 import '../controllers/detallessession_controller.dart';
 
 class DetallessessionView extends GetView<DetallessessionController> {
@@ -77,7 +77,7 @@ class DetallessessionView extends GetView<DetallessessionController> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(
+                          const Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -85,7 +85,7 @@ class DetallessessionView extends GetView<DetallessessionController> {
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
+                                  children: [
                                     Text('Saldo Anterior',
                                         style: TextStyle(fontSize: 18)),
                                   ],
@@ -118,7 +118,7 @@ class DetallessessionView extends GetView<DetallessessionController> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(
+                          const Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -126,7 +126,7 @@ class DetallessessionView extends GetView<DetallessessionController> {
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
+                                  children: [
                                     Text('Prestamos',
                                         style: TextStyle(fontSize: 18)),
                                   ],
@@ -158,7 +158,7 @@ class DetallessessionView extends GetView<DetallessessionController> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(
+                          const Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -166,7 +166,7 @@ class DetallessessionView extends GetView<DetallessessionController> {
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
+                                  children: [
                                     Text('Transacciones',
                                         style: TextStyle(fontSize: 18)),
                                   ],
@@ -198,7 +198,7 @@ class DetallessessionView extends GetView<DetallessessionController> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(
+                          const Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -206,7 +206,7 @@ class DetallessessionView extends GetView<DetallessessionController> {
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
+                                  children: [
                                     Text('Recaudos',
                                         style: TextStyle(fontSize: 18)),
                                   ],
@@ -239,7 +239,7 @@ class DetallessessionView extends GetView<DetallessessionController> {
                       Row(
                         crossAxisAlignment: CrossAxisAlignment.start,
                         children: [
-                          Expanded(
+                          const Expanded(
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
@@ -247,7 +247,7 @@ class DetallessessionView extends GetView<DetallessessionController> {
                                 Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
+                                  children: [
                                     Text('Saldo Actual',
                                         style: TextStyle(fontSize: 18)),
                                   ],
@@ -484,7 +484,7 @@ class CustomCard extends StatelessWidget {
                                         children: [
                                           Text(
                                             '${s.fecha}',
-                                            style: TextStyle(fontSize: 15),
+                                            style: const TextStyle(fontSize: 15),
                                           ),
                                         ],
                                       ),
@@ -549,9 +549,9 @@ class CustomCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
+                              children: [
                                 Text(
                                   'Capital:',
                                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -575,9 +575,9 @@ class CustomCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
+                              children: [
                                 Text(
                                   'Saldo:',
                                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -599,9 +599,9 @@ class CustomCard extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
+                              children: [
                                 Text(
                                   'Estado:',
                                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -702,9 +702,9 @@ class CustomCard2 extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
+                              children: [
                                 Text(
                                   'Tercero:',
                                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -740,9 +740,9 @@ class CustomCard2 extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
+                              children: [
                                 Text(
                                   'Fecha:',
                                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -766,9 +766,9 @@ class CustomCard2 extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
+                              children: [
                                 Text(
                                   'Valor:',
                                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -906,9 +906,9 @@ class CustomCard3 extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
+                              children: [
                                 Text(
                                   'Saldo',
                                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -930,9 +930,9 @@ class CustomCard3 extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
+                              children: [
                                 Text(
                                   'Monto',
                                   style: TextStyle(fontWeight: FontWeight.bold),
@@ -954,9 +954,9 @@ class CustomCard3 extends StatelessWidget {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           mainAxisAlignment: MainAxisAlignment.start,
                           children: [
-                            Row(
+                            const Row(
                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                              children: const [
+                              children: [
                                 Text(
                                   'Valor a pagar',
                                   style: TextStyle(fontWeight: FontWeight.bold),

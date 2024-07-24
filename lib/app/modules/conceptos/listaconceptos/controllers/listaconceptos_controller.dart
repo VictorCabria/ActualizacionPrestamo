@@ -1,14 +1,12 @@
-// ignore_for_file: avoid_function_literals_in_foreach_calls
-
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/concepto_model.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
-import 'package:prestamo_mc/app/services/model_services/conceptos_service.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
+import 'package:prestamo_mc_2_0/app/models/concepto_model.dart';
 
+import '../../../../routes/app_pages.dart';
+import '../../../../services/model_services/conceptos_service.dart';
 import '../../../../services/model_services/transacciones_service.dart';
+import '../../../../utils/palette.dart';
+import '../../../../utils/references.dart';
 
 
 class ListaconceptosController extends GetxController {

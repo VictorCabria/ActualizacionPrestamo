@@ -1,9 +1,7 @@
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/barrio_modal.dart';
-import 'package:prestamo_mc/app/utils/utils.dart';
-
+import '../../../../models/barrio_modal.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/registrarcliente_controller.dart';
 
 class RegistrarclienteView extends GetView<RegistrarclienteController> {

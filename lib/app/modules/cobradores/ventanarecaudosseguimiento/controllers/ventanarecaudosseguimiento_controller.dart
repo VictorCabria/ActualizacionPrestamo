@@ -49,7 +49,7 @@ class VentanarecaudosseguimientoController extends GetxController {
   }
 
   ventanarecaudo(Recaudo recaudo) {
-    Get.toNamed(Routes.DETALLESDEPAGOSRECAUDOS,
+    Get.toNamed(Routes.DETALLESDEPAGORECAUDOS,
         arguments: {firebaseReferences.recaudos: recaudo});
   }
 

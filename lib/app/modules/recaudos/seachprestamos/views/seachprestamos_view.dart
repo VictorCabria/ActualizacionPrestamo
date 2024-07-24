@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../../../models/client_model.dart';
+import '../../../../models/prestamo_model.dart';
+import '../../../../models/type_prestamo_model.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/seachprestamos_controller.dart';
 
 class SeachprestamosView extends GetView<SeachprestamosController> {
@@ -17,7 +17,7 @@ class SeachprestamosView extends GetView<SeachprestamosController> {
           appBar: AppBar(
             title: controller.isBuscar.value
                 ? CustomSearch(controller: controller)
-                : Text('Buscar Prestamos'),
+                : const Text('Buscar Prestamos'),
             centerTitle: true,
             backgroundColor: Palette.primary,
             actions: <Widget>[
@@ -101,7 +101,7 @@ class CustomCard extends StatelessWidget {
                                   borderRadius: BorderRadius.circular(4)),
                               child:  Text(
                                 '${s.recorrido}',
-                                style: TextStyle(
+                                style: const TextStyle(
                                     fontSize: 16, color: Colors.white),
                               )),
                           FutureBuilder(
@@ -135,10 +135,10 @@ class CustomCard extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
+                                  children: [
                                     Text(
                                       'Fecha',
                                       style: TextStyle(
@@ -176,10 +176,10 @@ class CustomCard extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
+                                  children: [
                                     Text(
                                       'Valor',
                                       style: TextStyle(
@@ -217,10 +217,10 @@ class CustomCard extends StatelessWidget {
                               crossAxisAlignment: CrossAxisAlignment.start,
                               mainAxisAlignment: MainAxisAlignment.start,
                               children: [
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
-                                  children: const [
+                                  children: [
                                     Text(
                                       'Saldo',
                                       style: TextStyle(

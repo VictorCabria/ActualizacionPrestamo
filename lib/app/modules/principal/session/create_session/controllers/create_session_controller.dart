@@ -2,16 +2,16 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/models/transaction_model.dart';
-import 'package:prestamo_mc/app/models/zone_model.dart';
-import 'package:prestamo_mc/app/modules/principal/home/controllers/home_controller.dart';
+import '../../../../../models/cobradores_modal.dart';
 import '../../../../../models/session_model.dart';
+import '../../../../../models/transaction_model.dart';
+import '../../../../../models/zone_model.dart';
 import '../../../../../services/model_services/cobradores_service.dart';
 import '../../../../../services/model_services/session_service.dart';
 import '../../../../../services/model_services/transacciones_service.dart';
 import '../../../../../services/model_services/zona_service.dart';
 import '../../../ajustes/controllers/ajustes_controller.dart';
+import '../../../home/controllers/home_controller.dart';
 
 class CreateSessionController extends GetxController {
   //controles de formulario
@@ -26,15 +26,18 @@ class CreateSessionController extends GetxController {
   Cobradores? cobrador2;
   final cobradores = [].obs;
   Zone? zona;
+  DateTime selectedDate = DateTime.now();
   final obtenervalorinicial = 0.0.obs;
+  late TextEditingController fromDateControler;
   final zonas = [].obs;
-  String hoy = DateFormat('yyyy-MM-dd').format(DateTime.now()).toString();
+  RxString hoy = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
   late TextEditingController controller, controller2;
   final valorInicial = 0.0.obs;
   final formkey = GlobalKey<FormState>();
   @override
   void onInit() async {
     getinicialvalorinicial();
+   fromDateControler = TextEditingController(text: hoy.value);
     controller2 = TextEditingController(text: valorInicial.toString());
     /* controller = TextEditingController(text: valorInicial.toString())
       ..selection = TextSelection(
@@ -84,7 +87,7 @@ class CreateSessionController extends GetxController {
         print("Formulario valido ");
       }
       var res = await sessionService.createSession(
-          object: Session.nueva(hoy, cobrador2!.id, valorInicial.value,
+          object: Session.nueva(fromDateControler.text, cobrador2!.id, valorInicial.value,
                   zona!.id, homeControll.sessionAnterior)
               .toJson());
       if (res != null) {
@@ -103,7 +106,7 @@ class CreateSessionController extends GetxController {
                 valor: total,
                 concept: idConcept,
                 idSession: homeControll.sessionAnterior!.id,
-                fecha: hoy);
+                fecha: fromDateControler.text);
             transaccionesService.savetransacciones(transacciones);
           }
         }

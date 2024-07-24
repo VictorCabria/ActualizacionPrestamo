@@ -1,8 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:prestamo_mc/app/models/ajustes_modal.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
 
+import '../../models/ajustes_modal.dart';
+import '../../utils/references.dart';
 import '../firebase_services/database_service.dart';
 
 class AjustesService {

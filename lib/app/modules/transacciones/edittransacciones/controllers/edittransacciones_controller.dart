@@ -1,11 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/models/concepto_model.dart';
-import 'package:prestamo_mc/app/models/transaction_model.dart';
-import 'package:prestamo_mc/app/services/model_services/cobradores_service.dart';
-import 'package:prestamo_mc/app/services/model_services/conceptos_service.dart';
-import 'package:prestamo_mc/app/services/model_services/transacciones_service.dart';
+
+import '../../../../models/cobradores_modal.dart';
+import '../../../../models/concepto_model.dart';
+import '../../../../models/transaction_model.dart';
+import '../../../../services/model_services/cobradores_service.dart';
+import '../../../../services/model_services/conceptos_service.dart';
+import '../../../../services/model_services/transacciones_service.dart';
 
 class EdittransaccionesController extends GetxController {
   RxList<Cobradores> cobradorescontroller = RxList<Cobradores>([]);
@@ -22,6 +23,8 @@ class EdittransaccionesController extends GetxController {
   Transacciones? transacciones;
   Concepto? concepto;
   Cobradores? cobrador;
+  late TextEditingController fromDateControler2;
+  DateTime selectedDate2 = DateTime.now();
 
   final listaconcepto = [].obs;
   final listcobradores = [].obs;
@@ -30,6 +33,7 @@ class EdittransaccionesController extends GetxController {
   void onInit() {
     transacciones = Get.arguments['transacciones'];
     fecha.value = transacciones!.fecha!;
+    fromDateControler2 = TextEditingController(text: transacciones!.fecha!);
 
     valor.value = transacciones!.valor!;
     conceptoStream = getconcepto();
@@ -89,7 +93,7 @@ class EdittransaccionesController extends GetxController {
 
   edittransacciones() async {
     if (formkey.currentState!.validate()) {
-      transacciones!.fecha = fecha.value;
+      transacciones!.fecha = fromDateControler2.text;
       transacciones!.concept = selectconcepto!.id;
       transacciones!.valor = valor.value;
       transacciones!.cobrador = selectcobradores!.id;

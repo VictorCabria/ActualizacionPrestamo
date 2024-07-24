@@ -1,9 +1,8 @@
-import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
-
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-
+import 'package:intl/intl.dart';
+import 'package:responsive_sizer/responsive_sizer.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/edittransacciones_controller.dart';
 
 class EdittransaccionesView extends GetView<EdittransaccionesController> {
@@ -31,28 +30,37 @@ class EdittransaccionesView extends GetView<EdittransaccionesController> {
                   height: 20,
                 ),
                 Container(
+                  height: 10.h,
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)),
-                  child: DateTimePicker(
-                    dateMask: "d/MM/yyyy",
+                  child: TextFormField(
+                    onTap: () async {
+                      final DateTime? pickedTime = await showDatePicker(
+                          context: context,
+                          initialDate: controller.selectedDate2,
+                          firstDate: DateTime(2015, 8),
+                          lastDate: DateTime(2101));
+
+                      if (pickedTime != null) {
+                        controller.fromDateControler2.text =
+                            DateFormat('yyyy-MM-dd').format(pickedTime);;
+                      }
+                    },
+                    autofocus: false,
+                    controller: controller.fromDateControler2,
+                    keyboardType: TextInputType.number,
                     cursorColor: Palette.primary,
-                    initialValue: controller.transacciones!.fecha,
-                    onChanged: (value) => controller.fecha.value = value,
-                    firstDate: DateTime(1900),
-                    lastDate: DateTime(2100),
+                    onSaved: (value) {
+                      controller.fromDateControler2.text = value!;
+                    },
                     decoration: const InputDecoration(
-                        focusColor: Palette.primary,
-                        hoverColor: Palette.primary,
-                        prefixIcon:
-                            Icon(Icons.calendar_month, color: Palette.primary),
+                        prefixIcon: Icon(Icons.headset, color: Palette.primary),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(40.0),
                           ),
-                          borderSide: BorderSide(
-                            color: Palette.primary,
-                          ),
+                          borderSide: BorderSide(color: Palette.primary),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(

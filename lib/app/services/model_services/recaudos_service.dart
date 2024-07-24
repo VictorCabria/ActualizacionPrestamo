@@ -1,9 +1,10 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
-import 'package:prestamo_mc/app/models/recaudo_line_modal.dart';
-import 'package:prestamo_mc/app/models/recaudo_model.dart';
+import '../../models/recaudo_line_modal.dart';
+import '../../models/recaudo_model.dart';
 import '../../utils/references.dart';
-import '../firebase_services/database_service.dart';
+import '../firebase_services/database_services.dart';
+
 
 class RecaudosService {
   static String recaudosReference = firebaseReferences.recaudos;

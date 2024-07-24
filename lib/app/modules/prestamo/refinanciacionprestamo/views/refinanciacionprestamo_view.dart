@@ -1,19 +1,21 @@
-import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
+
 import 'package:responsive_sizer/responsive_sizer.dart';
 
 import '../../../../models/client_model.dart';
+import '../../../../models/type_prestamo_model.dart';
 import '../../../../models/zone_model.dart';
 import '../../../../routes/app_pages.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/refinanciacionprestamo_controller.dart';
 
 class RefinanciacionprestamoView
     extends GetView<RefinanciacionprestamoController> {
+  const RefinanciacionprestamoView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,27 +43,34 @@ class RefinanciacionprestamoView
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)),
-                  child: DateTimePicker(
-                    dateMask: "d/MM/yyyy",
+                  child: TextFormField(
+                    onTap: () async {
+                      final DateTime? pickedTime = await showDatePicker(
+                          context: context,
+                          initialDate: controller.selectedDate,
+                          firstDate: DateTime(2015, 8),
+                          lastDate: DateTime(2101));
+
+                      if (pickedTime != null) {
+                        controller.fromDateControler2.text =
+                            '${pickedTime.day}-${pickedTime.month}-${pickedTime.year}';
+                      }
+                    },
+                    autofocus: false,
+                    keyboardType: TextInputType.number,
                     cursorColor: Palette.primary,
-                    initialValue: controller.fecha.value,
-                    firstDate: DateTime(2000),
-                    lastDate: DateTime.now().add(const Duration(days: 665)),
-                    dateLabelText: 'Fecha',
-                    onChanged: (val) => controller.fecha.value = val,
+                    
+                    controller: controller.fromDateControler2,
+                    onSaved: (value) {
+                      controller.fromDateControler2.text = value!;
+                    },
                     decoration: const InputDecoration(
-                        focusColor: Palette.primary,
-                        hoverColor: Palette.primary,
-                        prefixIcon:
-                            Icon(Icons.account_circle, color: Palette.primary),
+                        prefixIcon: Icon(Icons.headset, color: Palette.primary),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(40.0),
                           ),
-                          borderSide: BorderSide(
-                            color: Palette.primary,
-                            width: 1,
-                          ),
+                          borderSide: BorderSide(color: Palette.primary),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -197,7 +206,7 @@ class RefinanciacionprestamoView
                     Expanded(
                         child: IconButton(
                             onPressed: () {
-                              Get.toNamed(Routes.CREATEZONE);
+                              /* Get.toNamed(Routes.CREATEZONE); */
                             },
                             icon: const Icon(
                               Icons.add_outlined,
@@ -329,7 +338,7 @@ class RefinanciacionprestamoView
                     icon:
                         const Icon(Icons.add_outlined, color: Palette.primary),
                     onPressed: () {
-                      Get.toNamed(Routes.REGISTRARPRESTAMOS);
+                      /*   Get.toNamed(Routes.REGISTRARPRESTAMOS); */
                     },
                   ))
                 ]),
@@ -342,8 +351,7 @@ class RefinanciacionprestamoView
                     id: 'monto',
                     builder: (manual) => TextFormField(
                       enabled: false,
-                      onTap: () {
-                      },
+                      onTap: () {},
 
                       autofocus: false,
                       keyboardType: TextInputType.number,
@@ -488,27 +496,33 @@ class RefinanciacionprestamoView
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)),
-                  child: DateTimePicker(
-                    dateMask: "d/MM/yyyy",
+                  child: TextFormField(
+                    onTap: () async {
+                      final DateTime? pickedTime = await showDatePicker(
+                          context: context,
+                          initialDate: controller.selectedDate2,
+                          firstDate: DateTime(2015, 8),
+                          lastDate: DateTime(2101));
+
+                      if (pickedTime != null) {
+                        controller.fromDateControler.text =
+                            '${pickedTime.day}-${pickedTime.month}-${pickedTime.year}';
+                      }
+                    },
+                    autofocus: false,
+                    keyboardType: TextInputType.number,
                     cursorColor: Palette.primary,
-                    initialValue: controller.fechadepago.value,
-                    firstDate: DateTime(2000),
-                    lastDate: DateTime.now().add(const Duration(days: 665)),
-                    dateLabelText: 'Primer recaudo',
-                    onChanged: (val) => controller.fechadepago.value = val,
+                    controller: controller.fromDateControler,
+                    onSaved: (value) {
+                      controller.fromDateControler.text = value!;
+                    },
                     decoration: const InputDecoration(
-                        focusColor: Palette.primary,
-                        hoverColor: Palette.primary,
-                        prefixIcon:
-                            Icon(Icons.account_circle, color: Palette.primary),
+                        prefixIcon: Icon(Icons.headset, color: Palette.primary),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(40.0),
                           ),
-                          borderSide: BorderSide(
-                            color: Palette.primary,
-                            width: 1,
-                          ),
+                          borderSide: BorderSide(color: Palette.primary),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
@@ -518,7 +532,7 @@ class RefinanciacionprestamoView
                             color: Palette.primary,
                           ),
                         ),
-                        labelText: "Primer Prestamo",
+                        labelText: "Fecha",
                         fillColor: Palette.primary,
                         labelStyle: TextStyle(color: Palette.primary)),
                   ),

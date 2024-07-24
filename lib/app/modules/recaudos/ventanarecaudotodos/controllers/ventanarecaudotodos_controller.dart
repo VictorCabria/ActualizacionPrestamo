@@ -1,8 +1,6 @@
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/recaudo_line_modal.dart';
-import 'package:prestamo_mc/app/services/model_services/prestamo_service.dart';
-
 import '../../../../models/prestamo_model.dart';
+import '../../../../models/recaudo_line_modal.dart';
 import '../../../../models/recaudo_model.dart';
 import '../../../../services/model_services/client_service.dart';
 import '../../../../services/model_services/recaudos_service.dart';

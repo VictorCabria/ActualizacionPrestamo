@@ -3,7 +3,7 @@ import 'package:flutter/foundation.dart';
 
 import '../../models/diasnocobro_modal.dart';
 import '../../utils/references.dart';
-import '../firebase_services/database_service.dart';
+import '../firebase_services/database_services.dart';
 
 class DiasnocobroService {
   static String diasnocobroReference = firebaseReferences.diasnocobro;

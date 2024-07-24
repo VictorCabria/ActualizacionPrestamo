@@ -1,15 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/utils/app_constants.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-import 'package:prestamo_mc/app/utils/text_styles.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 import 'package:intl/intl.dart';
 import '../../../../models/cobradores_modal.dart';
 import '../../../../models/recaudo_model.dart';
+import '../../../../utils/app_constants.dart';
+import '../../../../utils/palette.dart';
+import '../../../../utils/text_styles.dart';
 import '../controllers/panelrecaudos_controller.dart';
 
 class PanelrecaudosView extends GetView<PanelrecaudosController> {
+  const PanelrecaudosView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Obx(

@@ -1,11 +1,11 @@
-import 'package:date_time_picker/date_time_picker.dart';
 import 'package:flutter/services.dart';
 import 'package:get/get.dart';
 import 'package:flutter/material.dart';
+import 'package:intl/intl.dart';
 
-import 'package:prestamo_mc/app/models/client_model.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../../../models/client_model.dart';
 import '../../../../models/type_prestamo_model.dart';
 import '../../../../models/zone_model.dart';
 import '../../../../routes/app_pages.dart';
@@ -14,6 +14,8 @@ import '../../../../utils/palette.dart';
 import '../controllers/renovacionprestamo_controller.dart';
 
 class RenovacionprestamoView extends GetView<RenovacionprestamoController> {
+  const RenovacionprestamoView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -41,39 +43,52 @@ class RenovacionprestamoView extends GetView<RenovacionprestamoController> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)),
-                  child: DateTimePicker(
-                    dateMask: "d/MM/yyyy",
-                    cursorColor: Palette.primary,
-                    initialValue: controller.fecha.value,
-                    firstDate: DateTime(2000),
-                    lastDate: DateTime.now().add(const Duration(days: 665)),
-                    dateLabelText: 'Fecha',
-                    onChanged: (val) => controller.fecha.value = val,
-                    decoration: const InputDecoration(
-                        focusColor: Palette.primary,
-                        hoverColor: Palette.primary,
-                        prefixIcon:
-                            Icon(Icons.account_circle, color: Palette.primary),
-                        enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(40.0),
+                  child: Container(
+                    height: 10.h,
+                    decoration: BoxDecoration(
+                        color: Colors.white,
+                        borderRadius: BorderRadius.circular(20)),
+                    child: TextFormField(
+                      onTap: () async {
+                        final DateTime? pickedTime = await showDatePicker(
+                            context: context,
+                            initialDate: controller.selectedDate2,
+                            firstDate: DateTime(2015, 8),
+                            lastDate: DateTime(2101));
+
+                        if (pickedTime != null) {
+                          controller.fromDateControler2.text =
+                              '${pickedTime.day}-${pickedTime.month}-${pickedTime.year}';
+                        }
+                      },
+                      autofocus: false,
+                      keyboardType: TextInputType.number,
+                      cursorColor: Palette.primary,
+                      controller: controller.fromDateControler2,
+                      onSaved: (value) {
+                        controller.fromDateControler2.text = value!;
+                      },
+                      decoration: const InputDecoration(
+                          prefixIcon:
+                              Icon(Icons.headset, color: Palette.primary),
+                          enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(40.0),
+                            ),
+                            borderSide: BorderSide(color: Palette.primary),
                           ),
-                          borderSide: BorderSide(
-                            color: Palette.primary,
-                            width: 1,
+                          focusedBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(40.0),
+                            ),
+                            borderSide: BorderSide(
+                              color: Palette.primary,
+                            ),
                           ),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.all(
-                            Radius.circular(40.0),
-                          ),
-                          borderSide: BorderSide(
-                            color: Palette.primary,
-                          ),
-                        ),
-                        labelText: "Fecha",
-                        fillColor: Palette.primary,
-                        labelStyle: TextStyle(color: Palette.primary)),
+                          labelText: "Fecha",
+                          fillColor: Palette.primary,
+                          labelStyle: TextStyle(color: Palette.primary)),
+                    ),
                   ),
                 ),
                 Container(
@@ -197,7 +212,7 @@ class RenovacionprestamoView extends GetView<RenovacionprestamoController> {
                     Expanded(
                         child: IconButton(
                             onPressed: () {
-                              Get.toNamed(Routes.CREATEZONE);
+                              /* Get.toNamed(Routes.CREATEZONE) */;
                             },
                             icon: const Icon(
                               Icons.add_outlined,
@@ -330,7 +345,7 @@ class RenovacionprestamoView extends GetView<RenovacionprestamoController> {
                     icon:
                         const Icon(Icons.add_outlined, color: Palette.primary),
                     onPressed: () {
-                      Get.toNamed(Routes.REGISTRARPRESTAMOS);
+                      /* Get.toNamed(Routes.REGISTRARPRESTAMOS); */
                     },
                   ))
                 ]),
@@ -489,27 +504,33 @@ class RenovacionprestamoView extends GetView<RenovacionprestamoController> {
                   decoration: BoxDecoration(
                       color: Colors.white,
                       borderRadius: BorderRadius.circular(20)),
-                  child: DateTimePicker(
-                    dateMask: "d/MM/yyyy",
+                  child: TextFormField(
+                    onTap: () async {
+                      final DateTime? pickedTime = await showDatePicker(
+                          context: context,
+                          initialDate: controller.selectedDate2,
+                          firstDate: DateTime(2015, 8),
+                          lastDate: DateTime(2101));
+
+                      if (pickedTime != null) {
+                        controller.fromDateControler2.text =
+                            DateFormat('yyyy-MM-dd').format(pickedTime);
+                      }
+                    },
+                    autofocus: false,
+                    controller: controller.fromDateControler2,
+                    keyboardType: TextInputType.number,
                     cursorColor: Palette.primary,
-                    initialValue: controller.fechadepago.value,
-                    firstDate: DateTime(2000),
-                    lastDate: DateTime.now().add(const Duration(days: 665)),
-                    dateLabelText: 'Primer recaudo',
-                    onChanged: (val) => controller.fechadepago.value = val,
+                    onSaved: (value) {
+                      controller.fromDateControler2.text = value!;
+                    },
                     decoration: const InputDecoration(
-                        focusColor: Palette.primary,
-                        hoverColor: Palette.primary,
-                        prefixIcon:
-                            Icon(Icons.account_circle, color: Palette.primary),
+                        prefixIcon: Icon(Icons.headset, color: Palette.primary),
                         enabledBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(
                             Radius.circular(40.0),
                           ),
-                          borderSide: BorderSide(
-                            color: Palette.primary,
-                            width: 1,
-                          ),
+                          borderSide: BorderSide(color: Palette.primary),
                         ),
                         focusedBorder: OutlineInputBorder(
                           borderRadius: BorderRadius.all(

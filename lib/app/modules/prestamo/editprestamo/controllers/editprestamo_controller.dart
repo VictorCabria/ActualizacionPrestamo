@@ -2,23 +2,25 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/barrio_modal.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
-import 'package:prestamo_mc/app/models/type_prestamo_model.dart';
-import 'package:prestamo_mc/app/services/model_services/barrio_service.dart';
-import 'package:prestamo_mc/app/services/model_services/prestamo_service.dart';
+
 import '../../../../models/ajustes_modal.dart';
+import '../../../../models/barrio_modal.dart';
+import '../../../../models/client_model.dart';
+import '../../../../models/cobradores_modal.dart';
 import '../../../../models/cuotas_modal.dart';
 import '../../../../models/diasnocobro_modal.dart';
+import '../../../../models/prestamo_model.dart';
 import '../../../../models/recaudo_line_modal.dart';
+import '../../../../models/type_prestamo_model.dart';
 import '../../../../models/zone_model.dart';
 import '../../../../routes/app_pages.dart';
-import '../../../../services/model_services/ajustes_service.dart';
+
+import '../../../../services/model_services/ajustes_services.dart';
+import '../../../../services/model_services/barrio_service.dart';
 import '../../../../services/model_services/client_service.dart';
 import '../../../../services/model_services/cuota_service.dart';
 import '../../../../services/model_services/diascobro_service.dart';
+import '../../../../services/model_services/prestamo_service.dart';
 import '../../../../services/model_services/recaudos_service.dart';
 import '../../../../services/model_services/tipoprestamo_service.dart';
 import '../../../../services/model_services/zona_service.dart';
@@ -45,7 +47,7 @@ class EditprestamoController extends GetxController {
   Barrio? barrio;
   Prestamo? prestamo;
   Timestamp primerrecaudo = Timestamp.now();
-  final pagodercaudo = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
+  final pagodercaudo = DateFormat('yyyy/MM/dd').format(DateTime.now()).obs;
 
   //inicializar listas
   final clients = [].obs;
@@ -72,6 +74,8 @@ class EditprestamoController extends GetxController {
   final cobrardomingo = false.obs;
   final fecharecaudo = "".obs;
   final valorapagar = 0.0.obs;
+   late TextEditingController fromDateControler2;
+   DateTime selectedDate2 = DateTime.now();
 
   final formkey = GlobalKey<FormState>();
   @override
@@ -82,11 +86,13 @@ class EditprestamoController extends GetxController {
     recorridocontroller = TextEditingController();
     montoTextController = TextEditingController();
     tipodeprestamocontroller = TextEditingController();
+    fromDateControler2 = TextEditingController(text:prestamo!.fecha!);
     monto.value = prestamo!.monto!;
     montoTextController.text = monto.value.toString();
     valorCuota.value = prestamo!.valorCuota.toString();
     textController!.text = valorCuota.value;
     fecha.value = prestamo!.fecha!;
+    print(fecha.value);
     fechapago.value = prestamo!.fechaPago.toString();
     clients.value = await getListClients();
     zonas.value = await getListZona();
@@ -313,7 +319,7 @@ class EditprestamoController extends GetxController {
       if (formkey.currentState!.validate()) {
         prestamo!.clienteId = client!.id;
         prestamo!.detalle = detalle.value;
-        prestamo!.fecha = fecha.value;
+        prestamo!.fecha = fromDateControler2.text;
         prestamo!.monto = monto.value;
         prestamo!.zonaId = zona!.id;
         prestamo!.recorrido = client!.id;

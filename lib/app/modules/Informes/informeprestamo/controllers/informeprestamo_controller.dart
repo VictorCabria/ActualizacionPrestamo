@@ -22,6 +22,10 @@ class InformeprestamoController extends GetxController {
   RxList<Cobradores> cobradorescontroller = RxList<Cobradores>([]);
   late Stream<List<Cobradores>> cobradores2Stream;
   Cobradores? selectobradores;
+  DateTime selectedDate = DateTime.now();
+  DateTime selectedDate2 = DateTime.now();
+  late TextEditingController fromDateControler;
+  late TextEditingController fromDateControler2;
   final formkey = GlobalKey<FormState>();
   RxList<Prestamo> consultar = RxList<Prestamo>([]);
   RxList<Prestamo> prestamosnuevos = RxList<Prestamo>([]);
@@ -31,6 +35,8 @@ class InformeprestamoController extends GetxController {
   void onInit() {
     prestamosStream = getorestamos();
     cobradores2Stream = getcobradores();
+     fromDateControler = TextEditingController(text: fecha.value);
+     fromDateControler2 = TextEditingController(text: fechafinal.value);
     init();
     super.onInit();
   }
@@ -68,8 +74,8 @@ class InformeprestamoController extends GetxController {
 
   metodobusqueda() {
     prestamosnuevos.clear();
-    final fechainicio = DateTime.parse(fecha.value);
-    final fechaultima = DateTime.parse(fechafinal.value);
+    final fechainicio = DateTime.parse(fromDateControler.text);
+    final fechaultima = DateTime.parse(fromDateControler2.text);
 
     var response = prestamos.value = consultar
         .where((element) =>
@@ -84,8 +90,8 @@ class InformeprestamoController extends GetxController {
 
   metodobusquedacobrador() {
     prestamosnuevos.clear();
-    final fechainicio = DateTime.parse(fecha.value);
-    final fechaultima = DateTime.parse(fechafinal.value);
+    final fechainicio = DateTime.parse(fromDateControler.text);
+    final fechaultima = DateTime.parse(fromDateControler2.text);
     final cobradorid = selectobradores;
 
     var response = prestamos.value = consultar

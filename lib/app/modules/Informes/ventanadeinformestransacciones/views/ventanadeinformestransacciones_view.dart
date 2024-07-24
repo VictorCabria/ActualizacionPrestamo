@@ -8,6 +8,8 @@ import '../controllers/ventanadeinformestransacciones_controller.dart';
 
 class VentanadeinformestransaccionesView
     extends GetView<VentanadeinformestransaccionesController> {
+  const VentanadeinformestransaccionesView({super.key});
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(

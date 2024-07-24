@@ -1,6 +1,6 @@
 {
-    "name": "prestamo_mc",
-    "short_name": "prestamo_mc",
+    "name": "prestamo_mc_2_0",
+    "short_name": "prestamo_mc_2_0",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",

@@ -1,12 +1,9 @@
-// ignore_for_file: prefer_const_constructors
-
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/concepto_model.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-
+import '../../../../models/concepto_model.dart';
+import '../../../../routes/app_pages.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/listaconceptos_controller.dart';
 
 class ListaconceptosView extends GetView<ListaconceptosController> {

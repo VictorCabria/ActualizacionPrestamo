@@ -2,22 +2,22 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/recaudo_line_modal.dart';
-import 'package:prestamo_mc/app/models/recaudo_model.dart';
-import 'package:prestamo_mc/app/services/model_services/prestamo_service.dart';
-import 'package:prestamo_mc/app/services/model_services/recaudos_service.dart';
-import 'package:prestamo_mc/app/utils/app_constants.dart';
 import '../../../../models/ajustes_modal.dart';
 import '../../../../models/cuotas_modal.dart';
 import '../../../../models/diasnocobro_modal.dart';
 import '../../../../models/prestamo_model.dart';
+import '../../../../models/recaudo_line_modal.dart';
+import '../../../../models/recaudo_model.dart';
 import '../../../../models/type_prestamo_model.dart';
-import '../../../../services/model_services/ajustes_service.dart';
+import '../../../../services/model_services/ajustes_services.dart';
 import '../../../../services/model_services/client_service.dart';
 import '../../../../services/model_services/cobradores_service.dart';
 import '../../../../services/model_services/cuota_service.dart';
 import '../../../../services/model_services/diascobro_service.dart';
+import '../../../../services/model_services/prestamo_service.dart';
+import '../../../../services/model_services/recaudos_service.dart';
 import '../../../../services/model_services/session_service.dart';
+import '../../../../utils/app_constants.dart';
 import '../../../principal/home/controllers/home_controller.dart';
 
 class RecaudarprestamoController extends GetxController {
@@ -37,18 +37,21 @@ class RecaudarprestamoController extends GetxController {
   RecaudoLine? recaudoline;
   final valor = 0.0.obs;
   final cuota = 0.0.obs;
+  DateTime selectedDate = DateTime.now();
   final total = 0.0.obs;
   final montosuma = 0.0.obs;
   final cobrarsabado = false.obs;
   final cobrardomingo = false.obs;
   final formkey = GlobalKey<FormState>();
-  String fecha = DateTime.now().toString();
-  RxBool cargando = false.obs;
-  final pagodercaudo = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
 
+  final pagodercaudo = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
+  final fecha = DateFormat('yyyy-MM-dd').format(DateTime.now()).toString().obs;
+  RxBool cargando = false.obs;
+  late TextEditingController fromDateControler;
   @override
   void onInit() async {
     prestamo = Get.arguments['prestamos'];
+    fromDateControler = TextEditingController(text: fecha.value);
 
     diasnocobroStream = getdiasnocobro();
     cuota.value = prestamo!.valorCuota!;
@@ -122,7 +125,7 @@ class RecaudarprestamoController extends GetxController {
       }
       var res = await recaudoService.createrecaudo(
           object: Recaudo.nueva(
-                  pagodercaudo.value,
+                  fromDateControler.text,
                   homecontroller.cobradores!.id,
                   homecontroller.session!.id!,
                   prestamo!.zonaId)
@@ -130,7 +133,7 @@ class RecaudarprestamoController extends GetxController {
       if (res != null) {
         await recaudoService.saveRecaudoLine(RecaudoLine(
             cuota: prestamo!.valorCuota,
-            fecha: pagodercaudo.value,
+            fecha: fromDateControler.text,
             idCliente: prestamo!.clienteId,
             idPrestamo: prestamo!.id,
             idSession: homecontroller.session!.id!,
@@ -163,13 +166,13 @@ class RecaudarprestamoController extends GetxController {
                   i.idrecaudo = res.id;
                   valor.value = 0;
                   i.estado = Statuscuota.incompleto.name;
-                  i.fechaderecaudo = pagodercaudo.toString();
+                  i.fechaderecaudo = fromDateControler.text;
                 } else {
                   i.valorpagado = i.valorcuota!;
                   valor.value = valor.value - i.valorcuota!;
                   i.idrecaudo = res.id;
                   i.estado = Statuscuota.pagado.name;
-                  i.fechaderecaudo = pagodercaudo.toString();
+                  i.fechaderecaudo = fromDateControler.text;
                 }
               } else {
                 final restante = i.valorcuota! - i.valorpagado!;
@@ -177,14 +180,14 @@ class RecaudarprestamoController extends GetxController {
                   i.valorpagado = i.valorpagado! + valor.value;
                   valor.value = 0;
                   i.estado = Statuscuota.incompleto.name;
-                  i.fechaderecaudo = pagodercaudo.toString();
+                  i.fechaderecaudo = fromDateControler.text;
                   i.idrecaudo = res.id;
                 } else {
                   i.valorpagado = i.valorcuota!;
                   valor.value = valor.value - restante;
                   i.idrecaudo = res.id;
                   i.estado = Statuscuota.pagado.name;
-                  i.fechaderecaudo = pagodercaudo.toString();
+                  i.fechaderecaudo = fromDateControler.text;
                 }
               }
               await cuotaService.updatecuota(

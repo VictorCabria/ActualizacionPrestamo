@@ -2,9 +2,10 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:flutter/foundation.dart';
 
 import '../../models/cobradores_modal.dart';
-import '../../models/session_model.dart';
+
 import '../../utils/references.dart';
-import '../firebase_services/database_service.dart';
+import '../firebase_services/database_services.dart';
+
 
 class CobradoresService {
   static String cobradoresReference = firebaseReferences.cobradores;

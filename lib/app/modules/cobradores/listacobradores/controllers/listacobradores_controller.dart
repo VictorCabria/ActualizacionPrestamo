@@ -3,22 +3,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/services/model_services/transacciones_service.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
 import '../../../../models/cobradores_modal.dart';
-import '../../../../models/session_model.dart';
 import '../../../../routes/app_pages.dart';
 import '../../../../services/model_services/cobradores_service.dart';
-import '../../../../services/model_services/session_service.dart';
-import '../../../principal/home/controllers/home_controller.dart';
+import '../../../../services/model_services/transacciones_service.dart';
+import '../../../../utils/references.dart';
+import '../../../../utils/utils.dart';
 
 class ListacobradoresController extends GetxController {
   RxList<Cobradores> cobradores = RxList<Cobradores>([]);
   RxList<Cobradores> consulta = RxList<Cobradores>([]);
   late Stream<List<Cobradores>> cobradoresStream;
-  final homeControll = Get.find<HomeController>();
   List<Cobradores> get cobradoresget => cobradores;
   RxBool isMultiSelectionEnabled = false.obs;
   RxBool isloading = false.obs;
@@ -82,7 +77,7 @@ class ListacobradoresController extends GetxController {
   }
 
   detallecobradores(Cobradores cobrador) {
-    Get.toNamed(Routes.VENTANASSEGUIMIENTOCOBRADORES,
+    Get.toNamed(Routes.VENTANASEGUIMIENTOCOBRADORES,
         arguments: {firebaseReferences.cobradores: cobrador});
   }
 

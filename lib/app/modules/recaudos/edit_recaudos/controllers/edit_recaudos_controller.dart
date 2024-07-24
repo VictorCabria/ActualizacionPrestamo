@@ -1,10 +1,9 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/barrio_modal.dart';
-import 'package:prestamo_mc/app/models/cobradores_modal.dart';
-import 'package:prestamo_mc/app/services/model_services/barrio_service.dart';
-
+import '../../../../models/barrio_modal.dart';
+import '../../../../models/cobradores_modal.dart';
 import '../../../../models/recaudo_model.dart';
+import '../../../../services/model_services/barrio_service.dart';
 import '../../../../services/model_services/cobradores_service.dart';
 
 class EditRecaudosController extends GetxController {
@@ -16,13 +15,16 @@ class EditRecaudosController extends GetxController {
   late Stream<List<Cobradores>> cobradores2Stream;
   Cobradores? selectcobradores;
   RxBool tipotransaccion = false.obs;
+  late TextEditingController fromDateControler;
   late Recaudo recaudo;
   final fecha = "".obs;
+  DateTime selectedDate = DateTime.now();
 
   @override
   void onInit() {
     recaudo = Get.arguments['recaudos'];
     fecha.value = recaudo.fecha!;
+     fromDateControler = TextEditingController(text:recaudo.fecha!);
     // selectcobradores = Cobradores.fromDinamic(recaudo.cobradorId);
     // selectbarrio = Barrio.fromDinamic(recaudo.zoneId);
     super.onInit();

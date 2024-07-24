@@ -1,17 +1,21 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/diasnocobro_modal.dart';
 
+import '../../../../models/diasnocobro_modal.dart';
 import '../../../../services/model_services/diascobro_service.dart';
 
 class CreatediasnocobroController extends GetxController {
   //TODO: Implement CreatediasnocobroController
   final formkey = GlobalKey<FormState>();
   RxString fecha = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
+  DateTime selectedDate = DateTime.now();
+    late TextEditingController fromDateControler;
 
   @override
   void onInit() {
+    fromDateControler = TextEditingController(text: fecha.value);
+  
     super.onInit();
   }
 
@@ -30,7 +34,7 @@ class CreatediasnocobroController extends GetxController {
   } */
 
   adddiasnocobro() async {
-    Diasnocobro diasnocobro = Diasnocobro(dia: fecha.value);
+    Diasnocobro diasnocobro = Diasnocobro(dia: fromDateControler.text);
     try {
       var status = formkey.currentState!.validate();
       if (status) {

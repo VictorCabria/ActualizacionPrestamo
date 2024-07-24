@@ -1,13 +1,13 @@
-import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
 import 'package:get_storage/get_storage.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
+import 'package:prestamo_mc_2_0/app/services/firebase_services/auth_services.dart';
+import 'package:prestamo_mc_2_0/app/utils/palette.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-import 'app/modules/principal/ajustes/controllers/ajustes_controller.dart';
-import 'app/services/firebase_services/auth_service.dart';
 import 'firebase_options.dart';
+import 'package:get/get.dart';
+import 'package:firebase_core/firebase_core.dart';
 import 'app/routes/app_pages.dart';
+import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
@@ -29,7 +29,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    String? _setInitialRoute() {
+    String? setInitialRoute() {
       var firebaseUser = auth.getCurrentUser();
 
       if (firebaseUser != null) {
@@ -43,11 +43,11 @@ class MyApp extends StatelessWidget {
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       title: "Application",
-      color: Palette.primary,
-      initialRoute: _setInitialRoute(),
+       color: Palette.primary,
+      initialRoute: setInitialRoute(),
       getPages: AppPages.routes,
       localizationsDelegates: const [
-        GlobalMaterialLocalizations.delegate,
+         GlobalMaterialLocalizations.delegate,
         GlobalWidgetsLocalizations.delegate,
         GlobalCupertinoLocalizations.delegate,
       ],

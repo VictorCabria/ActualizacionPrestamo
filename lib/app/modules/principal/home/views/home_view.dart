@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
 
+import '../../../../routes/app_pages.dart';
 import '../../../../utils/utils.dart';
 import '../../../../widgets/header.dart';
 import '../controllers/home_controller.dart';
@@ -504,7 +504,7 @@ class HomeView extends GetView<HomeController> {
                           ),
                           child: GestureDetector(
                             onTap: () {
-                              Get.toNamed(Routes.REPORTES);
+                               Get.toNamed(Routes.VENTANAINFORME); 
                             },
                             child: Card(
                               child: Container(
@@ -626,3 +626,4 @@ class HeaderWidget extends StatelessWidget {
     );
   }
 }
+

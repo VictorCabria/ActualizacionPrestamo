@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/models/zone_model.dart';
-import 'package:prestamo_mc/app/utils/palette.dart';
 import 'package:responsive_sizer/responsive_sizer.dart';
-
+import '../../../../models/client_model.dart';
 import '../../../../models/cobradores_modal.dart';
 import '../../../../models/type_prestamo_model.dart';
+import '../../../../models/zone_model.dart';
 import '../../../../utils/app_constants.dart';
+import '../../../../utils/palette.dart';
 import '../controllers/detalleprestamo_controller.dart';
 
 class DetalleprestamoView extends GetView<DetalleprestamoController> {
@@ -203,11 +202,11 @@ class DetalleprestamoView extends GetView<DetalleprestamoController> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             children: [
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
-                                                children: const [
+                                                children: [
                                                   Text(
                                                     'Cobrador',
                                                     style: TextStyle(
@@ -245,11 +244,11 @@ class DetalleprestamoView extends GetView<DetalleprestamoController> {
                                                 ],
                                               ),
                                               const SizedBox(height: 15),
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
-                                                children: const [
+                                                children: [
                                                   Text(
                                                     'Monto',
                                                     style: TextStyle(
@@ -270,11 +269,11 @@ class DetalleprestamoView extends GetView<DetalleprestamoController> {
                                                 ],
                                               ),
                                               const SizedBox(height: 15),
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
-                                                children: const [
+                                                children: [
                                                   Text(
                                                     'N. Cuotas',
                                                     style: TextStyle(
@@ -304,11 +303,11 @@ class DetalleprestamoView extends GetView<DetalleprestamoController> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             children: [
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
-                                                children: const [
+                                                children: [
                                                   Text(
                                                     'Fecha',
                                                     style: TextStyle(
@@ -329,11 +328,11 @@ class DetalleprestamoView extends GetView<DetalleprestamoController> {
                                                 ],
                                               ),
                                               const SizedBox(height: 15),
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
-                                                children: const [
+                                                children: [
                                                   Text(
                                                     'Porcentaje',
                                                     style: TextStyle(
@@ -354,11 +353,11 @@ class DetalleprestamoView extends GetView<DetalleprestamoController> {
                                                 ],
                                               ),
                                               const SizedBox(height: 15),
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
-                                                children: const [
+                                                children: [
                                                   Text(
                                                     'Valor Cuota',
                                                     style: TextStyle(
@@ -389,11 +388,11 @@ class DetalleprestamoView extends GetView<DetalleprestamoController> {
                                             mainAxisAlignment:
                                                 MainAxisAlignment.start,
                                             children: [
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
-                                                children: const [
+                                                children: [
                                                   Text(
                                                     'Zona',
                                                     style: TextStyle(
@@ -435,11 +434,11 @@ class DetalleprestamoView extends GetView<DetalleprestamoController> {
                                                     )
                                                   ]),
                                               const SizedBox(height: 15),
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
-                                                children: const [
+                                                children: [
                                                   Text(
                                                     'Total ',
                                                     style: TextStyle(
@@ -460,11 +459,11 @@ class DetalleprestamoView extends GetView<DetalleprestamoController> {
                                                 ],
                                               ),
                                               const SizedBox(height: 15),
-                                              Row(
+                                              const Row(
                                                 mainAxisAlignment:
                                                     MainAxisAlignment
                                                         .spaceBetween,
-                                                children: const [
+                                                children: [
                                                   Text(
                                                     'Saldo ',
                                                     style: TextStyle(
@@ -611,8 +610,8 @@ class CustomCard extends StatelessWidget {
                 child: Card(
                   elevation: 2,
                   child: ListTile(
-                    title: Padding(
-                        padding: const EdgeInsets.fromLTRB(0, 0, 0, 0),
+                    title: const Padding(
+                        padding: EdgeInsets.fromLTRB(0, 0, 0, 0),
                         child: Column(
                             mainAxisAlignment: MainAxisAlignment.start,
                             crossAxisAlignment: CrossAxisAlignment.start,
@@ -654,10 +653,10 @@ class CustomCard extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'N.cuota',
                                             style: TextStyle(
@@ -675,10 +674,10 @@ class CustomCard extends StatelessWidget {
                                         ],
                                       ),
                                       const SizedBox(height: 15),
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'Valor cuota',
                                             style: TextStyle(
@@ -705,10 +704,10 @@ class CustomCard extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'Fecha de pago',
                                             style: TextStyle(
@@ -731,10 +730,10 @@ class CustomCard extends StatelessWidget {
                                         ],
                                       ),
                                       const SizedBox(height: 15),
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'Valor Pagado',
                                             style: TextStyle(
@@ -761,10 +760,10 @@ class CustomCard extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'F de recaudo',
                                             style: TextStyle(
@@ -791,10 +790,10 @@ class CustomCard extends StatelessWidget {
                                         ],
                                       ),
                                       const SizedBox(height: 15),
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'Estado',
                                             style: TextStyle(
@@ -999,10 +998,10 @@ class CustomCard2 extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'Saldo',
                                             style: TextStyle(
@@ -1029,10 +1028,10 @@ class CustomCard2 extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'Monto',
                                             style: TextStyle(
@@ -1059,10 +1058,10 @@ class CustomCard2 extends StatelessWidget {
                                         CrossAxisAlignment.start,
                                     mainAxisAlignment: MainAxisAlignment.start,
                                     children: [
-                                      Row(
+                                      const Row(
                                         mainAxisAlignment:
                                             MainAxisAlignment.spaceBetween,
-                                        children: const [
+                                        children: [
                                           Text(
                                             'Valor a pagar',
                                             style: TextStyle(

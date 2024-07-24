@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/client_model.dart';
-import 'package:prestamo_mc/app/models/prestamo_model.dart';
 
+import '../../../models/client_model.dart';
+import '../../../models/prestamo_model.dart';
 import '../../../services/model_services/client_service.dart';
 import '../../../services/model_services/prestamo_service.dart';
 import '../../../utils/palette.dart';

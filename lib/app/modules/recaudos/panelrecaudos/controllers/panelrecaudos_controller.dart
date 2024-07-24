@@ -1,18 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
-import 'package:prestamo_mc/app/models/recaudo_model.dart';
-import 'package:prestamo_mc/app/services/model_services/session_service.dart';
-import 'package:prestamo_mc/app/utils/app_constants.dart';
-
 import '../../../../models/cuotas_modal.dart';
 import '../../../../models/prestamo_model.dart';
 import '../../../../models/recaudo_line_modal.dart';
+import '../../../../models/recaudo_model.dart';
 import '../../../../routes/app_pages.dart';
 import '../../../../services/model_services/cobradores_service.dart';
 import '../../../../services/model_services/cuota_service.dart';
 import '../../../../services/model_services/prestamo_service.dart';
 import '../../../../services/model_services/recaudos_service.dart';
+import '../../../../services/model_services/session_service.dart';
+import '../../../../utils/app_constants.dart';
 import '../../../../utils/references.dart';
 import '../../../principal/home/controllers/home_controller.dart';
 

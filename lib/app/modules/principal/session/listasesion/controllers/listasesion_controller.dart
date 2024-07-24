@@ -1,10 +1,9 @@
 import 'package:get/get.dart';
-import 'package:prestamo_mc/app/models/session_model.dart';
-import 'package:prestamo_mc/app/routes/app_pages.dart';
-import 'package:prestamo_mc/app/services/model_services/cobradores_service.dart';
-import 'package:prestamo_mc/app/utils/references.dart';
-
+import '../../../../../models/session_model.dart';
+import '../../../../../routes/app_pages.dart';
+import '../../../../../services/model_services/cobradores_service.dart';
 import '../../../../../services/model_services/session_service.dart';
+import '../../../../../utils/references.dart';
 import '../../../home/controllers/home_controller.dart';
 
 class ListasesionController extends GetxController {

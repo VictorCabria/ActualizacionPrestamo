@@ -2,16 +2,19 @@ import 'package:flutter/material.dart';
 import 'package:get/get.dart';
 import 'package:intl/intl.dart';
 
-import 'package:prestamo_mc/app/services/model_services/recaudos_service.dart';
-
 import '../../../../models/recaudo_line_modal.dart';
 import '../../../../routes/app_pages.dart';
+import '../../../../services/model_services/recaudos_service.dart';
 
 class InformerecaudoController extends GetxController {
   RxList<RecaudoLine> recaudo = RxList<RecaudoLine>([]);
   RxList<RecaudoLine> consultar = RxList<RecaudoLine>([]);
   RxList<RecaudoLine> recaudosnuevos = RxList<RecaudoLine>([]);
   late Stream<List<RecaudoLine>> recaudoStream;
+  DateTime selectedDate = DateTime.now();
+  DateTime selectedDate2 = DateTime.now();
+  late TextEditingController fromDateControler;
+  late TextEditingController fromDateControler2;
 
   final formkey = GlobalKey<FormState>();
   RxString fecha = DateFormat('yyyy-MM-dd').format(DateTime.now()).obs;
@@ -20,6 +23,8 @@ class InformerecaudoController extends GetxController {
   @override
   void onInit() async {
     recaudoStream = getrecaudo();
+     fromDateControler = TextEditingController(text: fecha.value);
+     fromDateControler2 = TextEditingController(text: fechafinal.value);
     init();
 
     super.onInit();
@@ -39,8 +44,8 @@ class InformerecaudoController extends GetxController {
 
   metodobusqueda() {
     recaudosnuevos.clear();
-    final fechainicio = DateTime.parse(fecha.value);
-    final fechaultima = DateTime.parse(fechafinal.value);
+    final fechainicio = DateTime.parse(fromDateControler.text);
+    final fechaultima = DateTime.parse(fromDateControler2.text);
 
     var response = recaudo.value = consultar
         .where((element) =>
